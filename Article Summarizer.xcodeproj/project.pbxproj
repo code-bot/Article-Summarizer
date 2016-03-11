@@ -43,6 +43,7 @@
 		87A4AE341C9354CB000D5E4A /* Article SummarizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Article SummarizerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article_SummarizerTests.swift; sourceTree = "<group>"; };
 		87A4AE3A1C9354CB000D5E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87AC02841C93577000B26AAE /* Article Summarizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Article Summarizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		9E59A127F8490065A697921A /* Pods-Article SummarizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Article SummarizerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Article SummarizerTests/Pods-Article SummarizerTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5FCD0704C87A6D5A82ECDCF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD0144275E9B1BADD7D70A8 /* Pods-Article SummarizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Article SummarizerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Article SummarizerTests/Pods-Article SummarizerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 				87A4AE2A1C9354CB000D5E4A /* Assets.xcassets */,
 				87A4AE2C1C9354CB000D5E4A /* LaunchScreen.storyboard */,
 				87A4AE2F1C9354CB000D5E4A /* Info.plist */,
+				87AC02841C93577000B26AAE /* Article Summarizer-Bridging-Header.h */,
 			);
 			path = "Article Summarizer";
 			sourceTree = "<group>";
@@ -465,10 +467,13 @@
 			baseConfigurationReference = 176FFCB94FCF6C879FDC0ED3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Article Summarizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sahajbhatt.Article-Summarizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Article Summarizer/Article Summarizer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -477,10 +482,12 @@
 			baseConfigurationReference = 38F1F41E92839A89CF0D9373 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Article Summarizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sahajbhatt.Article-Summarizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Article Summarizer/Article Summarizer-Bridging-Header.h";
 			};
 			name = Release;
 		};
