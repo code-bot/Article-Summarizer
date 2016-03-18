@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+//        let url = NSURL(string: "http://www.stackoverflow.com")
+//        
+//        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+//            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+//        }
+//        
+//        task.resume()
         return true
     }
 

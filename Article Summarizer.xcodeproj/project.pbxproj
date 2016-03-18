@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		17B891BAC378E79C8F1DE5AB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FCD0704C87A6D5A82ECDCF /* Pods.framework */; };
 		38B8B5582D73BC8F313465D9 /* Pods_Article_SummarizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501757E8F29B255673F64419 /* Pods_Article_SummarizerTests.framework */; };
+		874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE231C9354CB000D5E4A /* AppDelegate.swift */; };
 		87A4AE261C9354CB000D5E4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE251C9354CB000D5E4A /* ViewController.swift */; };
 		87A4AE291C9354CB000D5E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE271C9354CB000D5E4A /* Main.storyboard */; };
 		87A4AE2B1C9354CB000D5E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE2A1C9354CB000D5E4A /* Assets.xcassets */; };
 		87A4AE2E1C9354CB000D5E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE2C1C9354CB000D5E4A /* LaunchScreen.storyboard */; };
 		87A4AE391C9354CB000D5E4A /* Article_SummarizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */; };
+		87B5F9CE1C9B7E2F0092D077 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9B51C9B7E2F0092D077 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9CF1C9B7E2F0092D077 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9B81C9B7E2F0092D077 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D01C9B7E2F0092D077 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9BA1C9B7E2F0092D077 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D11C9B7E2F0092D077 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9BC1C9B7E2F0092D077 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D21C9B7E2F0092D077 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9BE1C9B7E2F0092D077 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D31C9B7E2F0092D077 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9C01C9B7E2F0092D077 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D41C9B7E2F0092D077 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9C41C9B7E2F0092D077 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D51C9B7E2F0092D077 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9C61C9B7E2F0092D077 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		87B5F9D61C9B7E2F0092D077 /* DiffbotAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9C91C9B7E2F0092D077 /* DiffbotAPIClient.m */; };
+		87B5F9D71C9B7E2F0092D077 /* NSDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9CB1C9B7E2F0092D077 /* NSDictionary+Merge.m */; };
+		87B5F9D81C9B7E2F0092D077 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B5F9CD1C9B7E2F0092D077 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AA5EBCD8CF317D32A4474905 /* Pods_Article_Summarizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14263F58A558960B7EACBE2F /* Pods_Article_Summarizer.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +45,8 @@
 		176FFCB94FCF6C879FDC0ED3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		38F1F41E92839A89CF0D9373 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		501757E8F29B255673F64419 /* Pods_Article_SummarizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Article_SummarizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		874A67601C9B48F100A150F3 /* Xcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Xcode.app; path = ../../../../../Applications/Xcode.app; sourceTree = "<group>"; };
+		874A67631C9B4B0E00A150F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		87A4AE201C9354CB000D5E4A /* Article Summarizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Article Summarizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A4AE231C9354CB000D5E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A4AE251C9354CB000D5E4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +58,32 @@
 		87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article_SummarizerTests.swift; sourceTree = "<group>"; };
 		87A4AE3A1C9354CB000D5E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87AC02841C93577000B26AAE /* Article Summarizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Article Summarizer-Bridging-Header.h"; sourceTree = "<group>"; };
+		87B5F9B41C9B7E2F0092D077 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		87B5F9B51C9B7E2F0092D077 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		87B5F9B61C9B7E2F0092D077 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		87B5F9B71C9B7E2F0092D077 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		87B5F9B81C9B7E2F0092D077 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		87B5F9B91C9B7E2F0092D077 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		87B5F9BA1C9B7E2F0092D077 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		87B5F9BB1C9B7E2F0092D077 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		87B5F9BC1C9B7E2F0092D077 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		87B5F9BD1C9B7E2F0092D077 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		87B5F9BE1C9B7E2F0092D077 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		87B5F9BF1C9B7E2F0092D077 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		87B5F9C01C9B7E2F0092D077 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		87B5F9C11C9B7E2F0092D077 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		87B5F9C21C9B7E2F0092D077 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		87B5F9C31C9B7E2F0092D077 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		87B5F9C41C9B7E2F0092D077 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		87B5F9C51C9B7E2F0092D077 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		87B5F9C61C9B7E2F0092D077 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		87B5F9C71C9B7E2F0092D077 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		87B5F9C81C9B7E2F0092D077 /* DiffbotAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffbotAPIClient.h; sourceTree = "<group>"; };
+		87B5F9C91C9B7E2F0092D077 /* DiffbotAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffbotAPIClient.m; sourceTree = "<group>"; };
+		87B5F9CA1C9B7E2F0092D077 /* NSDictionary+Merge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Merge.h"; sourceTree = "<group>"; };
+		87B5F9CB1C9B7E2F0092D077 /* NSDictionary+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Merge.m"; sourceTree = "<group>"; };
+		87B5F9CC1C9B7E2F0092D077 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		87B5F9CD1C9B7E2F0092D077 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		9E59A127F8490065A697921A /* Pods-Article SummarizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Article SummarizerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Article SummarizerTests/Pods-Article SummarizerTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5FCD0704C87A6D5A82ECDCF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD0144275E9B1BADD7D70A8 /* Pods-Article SummarizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Article SummarizerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Article SummarizerTests/Pods-Article SummarizerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */,
 				17B891BAC378E79C8F1DE5AB /* Pods.framework in Frameworks */,
 				AA5EBCD8CF317D32A4474905 /* Pods_Article_Summarizer.framework in Frameworks */,
 			);
@@ -93,6 +134,7 @@
 		87A4AE221C9354CB000D5E4A /* Article Summarizer */ = {
 			isa = PBXGroup;
 			children = (
+				87B5F9B21C9B7E2F0092D077 /* DiffbotAPIClient */,
 				87A4AE231C9354CB000D5E4A /* AppDelegate.swift */,
 				87A4AE251C9354CB000D5E4A /* ViewController.swift */,
 				87A4AE271C9354CB000D5E4A /* Main.storyboard */,
@@ -113,9 +155,52 @@
 			path = "Article SummarizerTests";
 			sourceTree = "<group>";
 		};
+		87B5F9B21C9B7E2F0092D077 /* DiffbotAPIClient */ = {
+			isa = PBXGroup;
+			children = (
+				87B5F9B31C9B7E2F0092D077 /* ASIHTTPRequest */,
+				87B5F9C81C9B7E2F0092D077 /* DiffbotAPIClient.h */,
+				87B5F9C91C9B7E2F0092D077 /* DiffbotAPIClient.m */,
+				87B5F9CA1C9B7E2F0092D077 /* NSDictionary+Merge.h */,
+				87B5F9CB1C9B7E2F0092D077 /* NSDictionary+Merge.m */,
+				87B5F9CC1C9B7E2F0092D077 /* Reachability.h */,
+				87B5F9CD1C9B7E2F0092D077 /* Reachability.m */,
+			);
+			path = DiffbotAPIClient;
+			sourceTree = "<group>";
+		};
+		87B5F9B31C9B7E2F0092D077 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				87B5F9B41C9B7E2F0092D077 /* ASIAuthenticationDialog.h */,
+				87B5F9B51C9B7E2F0092D077 /* ASIAuthenticationDialog.m */,
+				87B5F9B61C9B7E2F0092D077 /* ASICacheDelegate.h */,
+				87B5F9B71C9B7E2F0092D077 /* ASIDataCompressor.h */,
+				87B5F9B81C9B7E2F0092D077 /* ASIDataCompressor.m */,
+				87B5F9B91C9B7E2F0092D077 /* ASIDataDecompressor.h */,
+				87B5F9BA1C9B7E2F0092D077 /* ASIDataDecompressor.m */,
+				87B5F9BB1C9B7E2F0092D077 /* ASIDownloadCache.h */,
+				87B5F9BC1C9B7E2F0092D077 /* ASIDownloadCache.m */,
+				87B5F9BD1C9B7E2F0092D077 /* ASIFormDataRequest.h */,
+				87B5F9BE1C9B7E2F0092D077 /* ASIFormDataRequest.m */,
+				87B5F9BF1C9B7E2F0092D077 /* ASIHTTPRequest.h */,
+				87B5F9C01C9B7E2F0092D077 /* ASIHTTPRequest.m */,
+				87B5F9C11C9B7E2F0092D077 /* ASIHTTPRequestConfig.h */,
+				87B5F9C21C9B7E2F0092D077 /* ASIHTTPRequestDelegate.h */,
+				87B5F9C31C9B7E2F0092D077 /* ASIInputStream.h */,
+				87B5F9C41C9B7E2F0092D077 /* ASIInputStream.m */,
+				87B5F9C51C9B7E2F0092D077 /* ASINetworkQueue.h */,
+				87B5F9C61C9B7E2F0092D077 /* ASINetworkQueue.m */,
+				87B5F9C71C9B7E2F0092D077 /* ASIProgressDelegate.h */,
+			);
+			path = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
 		B4A495456C939AD2759E5AC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				874A67631C9B4B0E00A150F3 /* libz.tbd */,
+				874A67601C9B48F100A150F3 /* Xcode.app */,
 				B5FCD0704C87A6D5A82ECDCF /* Pods.framework */,
 				14263F58A558960B7EACBE2F /* Pods_Article_Summarizer.framework */,
 				501757E8F29B255673F64419 /* Pods_Article_SummarizerTests.framework */,
@@ -336,8 +421,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B5F9D81C9B7E2F0092D077 /* Reachability.m in Sources */,
+				87B5F9D21C9B7E2F0092D077 /* ASIFormDataRequest.m in Sources */,
+				87B5F9D31C9B7E2F0092D077 /* ASIHTTPRequest.m in Sources */,
 				87A4AE261C9354CB000D5E4A /* ViewController.swift in Sources */,
+				87B5F9CE1C9B7E2F0092D077 /* ASIAuthenticationDialog.m in Sources */,
+				87B5F9D51C9B7E2F0092D077 /* ASINetworkQueue.m in Sources */,
+				87B5F9D11C9B7E2F0092D077 /* ASIDownloadCache.m in Sources */,
+				87B5F9D41C9B7E2F0092D077 /* ASIInputStream.m in Sources */,
+				87B5F9D61C9B7E2F0092D077 /* DiffbotAPIClient.m in Sources */,
+				87B5F9CF1C9B7E2F0092D077 /* ASIDataCompressor.m in Sources */,
+				87B5F9D71C9B7E2F0092D077 /* NSDictionary+Merge.m in Sources */,
 				87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */,
+				87B5F9D01C9B7E2F0092D077 /* ASIDataDecompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
