@@ -32,7 +32,6 @@ class ViewController: UIViewController {
                 print(data)
             } else {
                 print("failure")
-                print(data)
             }
         }
         
