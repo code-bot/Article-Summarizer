@@ -12,7 +12,7 @@
 		8703C3F31C9CC4F100740257 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */; };
 		874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE231C9354CB000D5E4A /* AppDelegate.swift */; };
-		87A4AE261C9354CB000D5E4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE251C9354CB000D5E4A /* ViewController.swift */; };
+		87A4AE261C9354CB000D5E4A /* SummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE251C9354CB000D5E4A /* SummaryController.swift */; };
 		87A4AE291C9354CB000D5E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE271C9354CB000D5E4A /* Main.storyboard */; };
 		87A4AE2B1C9354CB000D5E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE2A1C9354CB000D5E4A /* Assets.xcassets */; };
 		87A4AE2E1C9354CB000D5E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE2C1C9354CB000D5E4A /* LaunchScreen.storyboard */; };
@@ -51,7 +51,7 @@
 		874A67631C9B4B0E00A150F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		87A4AE201C9354CB000D5E4A /* Article Summarizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Article Summarizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A4AE231C9354CB000D5E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		87A4AE251C9354CB000D5E4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87A4AE251C9354CB000D5E4A /* SummaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryController.swift; sourceTree = "<group>"; };
 		87A4AE281C9354CB000D5E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87A4AE2A1C9354CB000D5E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87A4AE2D1C9354CB000D5E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				8703C3F11C9CC4F100740257 /* AylienSummarizerClient */,
 				87B5F9B21C9B7E2F0092D077 /* DiffbotAPIClient */,
 				87A4AE231C9354CB000D5E4A /* AppDelegate.swift */,
-				87A4AE251C9354CB000D5E4A /* ViewController.swift */,
+				87A4AE251C9354CB000D5E4A /* SummaryController.swift */,
 				87A4AE271C9354CB000D5E4A /* Main.storyboard */,
 				87A4AE2A1C9354CB000D5E4A /* Assets.xcassets */,
 				87A4AE2C1C9354CB000D5E4A /* LaunchScreen.storyboard */,
@@ -435,7 +435,7 @@
 				87B5F9D81C9B7E2F0092D077 /* Reachability.m in Sources */,
 				87B5F9D21C9B7E2F0092D077 /* ASIFormDataRequest.m in Sources */,
 				87B5F9D31C9B7E2F0092D077 /* ASIHTTPRequest.m in Sources */,
-				87A4AE261C9354CB000D5E4A /* ViewController.swift in Sources */,
+				87A4AE261C9354CB000D5E4A /* SummaryController.swift in Sources */,
 				87B5F9CE1C9B7E2F0092D077 /* ASIAuthenticationDialog.m in Sources */,
 				87B5F9D51C9B7E2F0092D077 /* ASINetworkQueue.m in Sources */,
 				87B5F9D11C9B7E2F0092D077 /* ASIDownloadCache.m in Sources */,

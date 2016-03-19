@@ -14,15 +14,17 @@ let AYLIEN_Base_URL = "https://api.aylien.com/api/v1/summarize"
 
 class AylienSummarizerClient {
     
+    //Summarizes the article on the provided url
+    //Additional parameters can be passed in to edit the number of sentences and the language
     static func summarize(articleURL : String, params : NSDictionary?, withCallback : (succeeded: Bool, data : NSDictionary?) -> ()) {
         let paramsString = convertParams(params)
         let urlString = AYLIEN_Base_URL + "?url=" + articleURL.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())! + paramsString
         let url = NSURL(string: urlString)
+        
         let request = NSMutableURLRequest(URL: url!)
-        //request.addValue("*/*", forHTTPHeaderField: "Accept")
         request.addValue(AYLIEN_TextAPI_App_Key, forHTTPHeaderField: "X-AYLIEN-TextAPI-Application-Key")
         request.addValue(AYLIEN_TextAPI_App_ID, forHTTPHeaderField: "X-AYLIEN-TextAPI-Application-ID")
-        //request.addValue("gzip", forHTTPHeaderField: "accept-encoding")
+        
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             if (error != nil) {

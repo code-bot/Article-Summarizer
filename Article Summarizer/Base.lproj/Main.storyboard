@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Summary Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Article_Summarizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Summary Controller" customClass="SummaryController" customModule="Article_Summarizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gaP-gF-rkB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0X-yz-Zay" userLabel="Title">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrR-av-QN9">
+                                        <rect key="frame" x="0.0" y="21" width="600" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-tq-npi" userLabel="Author">
+                                                <rect key="frame" x="0.0" y="0.0" width="558" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1b-eS-T1J" userLabel="Publication and Date">
+                                                <rect key="frame" x="558" y="0.0" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpv-d4-gjI" userLabel="Summary">
+                                        <rect key="frame" x="0.0" y="41" width="600" height="495"/>
+                                    </scrollView>
+                                </subviews>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCo-uE-Rcb">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Summary" id="xOC-ln-aOW">
+                                        <barButtonItem key="rightBarButtonItem" title="View Full Text" id="vIQ-rb-8UW"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gaP-gF-rkB" secondAttribute="trailing" constant="-20" id="DK1-a0-9Gb"/>
+                            <constraint firstItem="gaP-gF-rkB" firstAttribute="top" secondItem="WCo-uE-Rcb" secondAttribute="bottom" id="Ebn-aa-y2h"/>
+                            <constraint firstItem="gaP-gF-rkB" firstAttribute="top" secondItem="WCo-uE-Rcb" secondAttribute="bottom" id="Hz2-Z9-5HA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gaP-gF-rkB" secondAttribute="bottom" id="ZSc-7d-MTc"/>
+                            <constraint firstItem="WCo-uE-Rcb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="rM6-DF-cXs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WCo-uE-Rcb" secondAttribute="trailing" constant="-20" id="rn1-Kf-Tt6"/>
+                            <constraint firstItem="gaP-gF-rkB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="uRm-OF-LVV"/>
+                            <constraint firstItem="WCo-uE-Rcb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xEB-k3-AuA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="5H5-tq-npi" id="HNW-cH-SDP"/>
+                        <outlet property="publicationLabel" destination="l1b-eS-T1J" id="Sir-XS-MoA"/>
+                        <outlet property="scrollView" destination="gpv-d4-gjI" id="69c-i8-XhR"/>
+                        <outlet property="titleLabel" destination="u0X-yz-Zay" id="3dg-3k-DlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="354" y="267"/>
         </scene>
     </scenes>
 </document>

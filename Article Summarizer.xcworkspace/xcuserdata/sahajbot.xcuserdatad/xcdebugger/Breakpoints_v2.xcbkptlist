@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Article Summarizer/AylienSummarizerClient/AylienSummarizerClient.swift"
-            timestampString = "480038751.677465"
+            timestampString = "480108437.292376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "summarize(_:params:withCallback:)"
             landmarkType = "5">
          </BreakpointContent>
