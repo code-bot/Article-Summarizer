@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ArticleSharing.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>SummarizerExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>87A4AE331C9354CB000D5E4A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87D26D161C9F3E94000DE9E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87D26D271C9F431A000DE9E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

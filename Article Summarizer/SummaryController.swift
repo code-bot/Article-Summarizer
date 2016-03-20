@@ -10,77 +10,57 @@ import UIKit
 
 
 
-class SummaryController: UIViewController {
+class SummaryController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var publicationLabel: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
-    var summaryLabel: UILabel!
+    @IBOutlet weak var webView: UIWebView!
     var articleTitle = ""
     var articleAuthor = ""
     var articlePublication = ""
+    var summaryText = ""
+    var summaryHTML = ""
+    var tags = [NSDictionary]()
+    var authorURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let source_url = "http://www.cnn.com/2016/03/17/us/seaworld-last-generation-of-orcas/index.html"
-        
-//        summaryLabel = UILabel(frame: scrollView.bounds)
-//        AylienSummarizerClient.summarize(source_url, params: nil) { (succeeded, data) -> () in
-//            if (succeeded) {
-//                print("success")
-//                print(data)
-//                var summaryString = ""
-//                if let sentences = data!["sentences"] {
-//                    for sentence in sentences as! [String] {
-//                        summaryString += sentence
-//                    }
-//                }
-//                self.summaryLabel.text = summaryString
-//                self.scrollView.addSubview(self.summaryLabel)
-//                print("added to scroll view")
-//            } else {
-//                print("failure")
-//            }
-//        }
-        
-        
-        
-        //Diffbot API test
-        DiffbotAPIClient.apiRequest(DiffbotArticleRequest, urlString: source_url, optionalArgs: nil, format: DiffbotAPIFormatJSON) { (success: Bool, result: AnyObject?) in
-            if (success) {
-                print("success")
-                //print(result)
-                if let dict = result as! NSDictionary? {
-                    if let objects = dict["objects"] as! NSArray? {
-                        let info = objects[0] as! NSDictionary
-                        if let title = info["title"] {
-                            self.articleTitle = title as! String
-                        }
-                        if let author = info["author"] {
-                            self.articleAuthor = author as! String
-                        }
-                        if let date = info["date"] {
-                            self.articlePublication = date as! String
-                        }
-                    }
-                    
-                }
-                self.viewDidAppear(false)
-            } else {
-                print("error")
-            }
+        self.titleLabel.text = articleTitle
+        self.authorButton.setTitle(articleAuthor, forState: UIControlState.Normal)
+        if (authorURL == "") {
+            self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            self.authorButton.userInteractionEnabled = false
+        } else {
+            self.authorButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+            self.authorButton.userInteractionEnabled = true
         }
+        self.publicationLabel.text = articlePublication
         
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        //Convert summary to HTML text and add hyperlinks around key words in text
+        summaryHTML = "<p>" + summaryText + "</p>"
+        for tag in tags {
+            summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tag["label"] as! String, withString: "<a href=" + (tag["uri"] as! String) + ">" + (tag["label"] as! String) + "</a>")
+            print(tag["label"] as! String)
+        }
+        summaryHTML += "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        webView.delegate = self
+        webView.scrollView.bounces = false
+        webView.loadHTMLString(summaryHTML, baseURL: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.titleLabel.text = articleTitle
-        self.authorLabel.text = articleAuthor
-        self.publicationLabel.text = articlePublication
+    @IBAction func loadAuthorPage(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
+    }
+    
+    //Hyperlink tapped within webview
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        //Open link via safari
+        if navigationType == UIWebViewNavigationType.LinkClicked {
+            UIApplication.sharedApplication().openURL(request.URL!)
+            return false
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +68,6 @@ class SummaryController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 
