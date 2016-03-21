@@ -6,6 +6,7 @@
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
 
+import UIKit
 
 let AYLIEN_TextAPI_App_Key = "9cec5357fbdf8eece817054e0d153141"
 let AYLIEN_TextAPI_App_ID = "ced832ab"

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
 
+import UIKit
+
 let Diffbot_API_Token = "e9f92e911efc248037f969b3886f6169"
 let Diffbot_Base_URL = "http://api.diffbot.com/v3/article"
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87262FBC1CA081C200D83A76 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */; };
+		87262FBD1CA081C700D83A76 /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */; };
 		874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87798B151C9E5D6C000FC2C9 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798B141C9E5D6C000FC2C9 /* LoadingController.swift */; };
 		87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE231C9354CB000D5E4A /* AppDelegate.swift */; };
@@ -16,14 +18,6 @@
 		87A4AE2E1C9354CB000D5E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A4AE2C1C9354CB000D5E4A /* LaunchScreen.storyboard */; };
 		87A4AE391C9354CB000D5E4A /* Article_SummarizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */; };
 		87B840351C9F66CD0070E6EC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
-		87B8403E1C9F68790070E6EC /* ArticleSummarizerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 87B8403D1C9F68790070E6EC /* ArticleSummarizerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87B840451C9F687A0070E6EC /* ArticleSummarizerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */; };
-		87B8404C1C9F687C0070E6EC /* ArticleSummarizerKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B8404B1C9F687C0070E6EC /* ArticleSummarizerKitTests.swift */; };
-		87B840501C9F687C0070E6EC /* ArticleSummarizerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */; };
-		87B840511C9F687C0070E6EC /* ArticleSummarizerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		87B8405B1C9F68B90070E6EC /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */; };
-		87B8405C1C9F68B90070E6EC /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */; };
-		87B8405D1C9F69090070E6EC /* ArticleSummarizerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */; };
 		87D26D2B1C9F431D000DE9E9 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D26D2A1C9F431D000DE9E9 /* ActionViewController.swift */; };
 		87D26D2E1C9F431D000DE9E9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D26D2C1C9F431D000DE9E9 /* MainInterface.storyboard */; };
 		87D26D321C9F431D000DE9E9 /* SummarizerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -37,27 +31,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 87A4AE1F1C9354CB000D5E4A;
 			remoteInfo = "Article Summarizer";
-		};
-		87B840461C9F687A0070E6EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87A4AE181C9354CB000D5E4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87B8403A1C9F68770070E6EC;
-			remoteInfo = ArticleSummarizerKit;
-		};
-		87B840481C9F687A0070E6EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87A4AE181C9354CB000D5E4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87A4AE1F1C9354CB000D5E4A;
-			remoteInfo = "Article Summarizer";
-		};
-		87B8404E1C9F687C0070E6EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 87A4AE181C9354CB000D5E4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 87B8403A1C9F68770070E6EC;
-			remoteInfo = ArticleSummarizerKit;
 		};
 		87D26D301C9F431D000DE9E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -75,7 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				87B840511C9F687C0070E6EC /* ArticleSummarizerKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,12 +82,6 @@
 		87A4AE3A1C9354CB000D5E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87AC02841C93577000B26AAE /* Article Summarizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Article Summarizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffbotArticleClient.swift; sourceTree = "<group>"; };
-		87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArticleSummarizerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		87B8403D1C9F68790070E6EC /* ArticleSummarizerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleSummarizerKit.h; sourceTree = "<group>"; };
-		87B8403F1C9F68790070E6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87B840441C9F68790070E6EC /* ArticleSummarizerKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArticleSummarizerKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87B8404B1C9F687C0070E6EC /* ArticleSummarizerKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSummarizerKitTests.swift; sourceTree = "<group>"; };
-		87B8404D1C9F687C0070E6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87B8405E1C9F6A400070E6EC /* SummarizerExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SummarizerExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		87D26D231C9F40D9000DE9E9 /* Article Summarizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Article Summarizer.entitlements"; sourceTree = "<group>"; };
 		87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SummarizerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */,
-				87B840501C9F687C0070E6EC /* ArticleSummarizerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,26 +108,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87B840371C9F68770070E6EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		87B840411C9F68790070E6EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87B840451C9F687A0070E6EC /* ArticleSummarizerKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		87D26D251C9F431A000DE9E9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B8405D1C9F69090070E6EC /* ArticleSummarizerKit.framework in Frameworks */,
 				87B840351C9F66CD0070E6EC /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,8 +133,6 @@
 				87A4AE221C9354CB000D5E4A /* Article Summarizer */,
 				87A4AE371C9354CB000D5E4A /* Article SummarizerTests */,
 				87D26D291C9F431A000DE9E9 /* SummarizerExtension */,
-				87B8403C1C9F68770070E6EC /* ArticleSummarizerKit */,
-				87B8404A1C9F687A0070E6EC /* ArticleSummarizerKitTests */,
 				87A4AE211C9354CB000D5E4A /* Products */,
 				B4A495456C939AD2759E5AC5 /* Frameworks */,
 			);
@@ -197,8 +144,6 @@
 				87A4AE201C9354CB000D5E4A /* Article Summarizer.app */,
 				87A4AE341C9354CB000D5E4A /* Article SummarizerTests.xctest */,
 				87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */,
-				87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */,
-				87B840441C9F68790070E6EC /* ArticleSummarizerKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,24 +183,6 @@
 			path = DiffbotArticleClient;
 			sourceTree = "<group>";
 		};
-		87B8403C1C9F68770070E6EC /* ArticleSummarizerKit */ = {
-			isa = PBXGroup;
-			children = (
-				87B8403D1C9F68790070E6EC /* ArticleSummarizerKit.h */,
-				87B8403F1C9F68790070E6EC /* Info.plist */,
-			);
-			path = ArticleSummarizerKit;
-			sourceTree = "<group>";
-		};
-		87B8404A1C9F687A0070E6EC /* ArticleSummarizerKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				87B8404B1C9F687C0070E6EC /* ArticleSummarizerKitTests.swift */,
-				87B8404D1C9F687C0070E6EC /* Info.plist */,
-			);
-			path = ArticleSummarizerKitTests;
-			sourceTree = "<group>";
-		};
 		87D26D291C9F431A000DE9E9 /* SummarizerExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,17 +207,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		87B840381C9F68770070E6EC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87B8403E1C9F68790070E6EC /* ArticleSummarizerKit.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		87A4AE1F1C9354CB000D5E4A /* Article Summarizer */ = {
 			isa = PBXNativeTarget;
@@ -306,7 +222,6 @@
 			);
 			dependencies = (
 				87D26D311C9F431D000DE9E9 /* PBXTargetDependency */,
-				87B8404F1C9F687C0070E6EC /* PBXTargetDependency */,
 			);
 			name = "Article Summarizer";
 			productName = "Article Summarizer";
@@ -332,43 +247,6 @@
 			name = "Article SummarizerTests";
 			productName = "Article SummarizerTests";
 			productReference = 87A4AE341C9354CB000D5E4A /* Article SummarizerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		87B8403A1C9F68770070E6EC /* ArticleSummarizerKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 87B840521C9F687C0070E6EC /* Build configuration list for PBXNativeTarget "ArticleSummarizerKit" */;
-			buildPhases = (
-				87B840361C9F68770070E6EC /* Sources */,
-				87B840371C9F68770070E6EC /* Frameworks */,
-				87B840381C9F68770070E6EC /* Headers */,
-				87B840391C9F68770070E6EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ArticleSummarizerKit;
-			productName = ArticleSummarizerKit;
-			productReference = 87B8403B1C9F68770070E6EC /* ArticleSummarizerKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		87B840431C9F68790070E6EC /* ArticleSummarizerKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 87B840561C9F687C0070E6EC /* Build configuration list for PBXNativeTarget "ArticleSummarizerKitTests" */;
-			buildPhases = (
-				87B840401C9F68790070E6EC /* Sources */,
-				87B840411C9F68790070E6EC /* Frameworks */,
-				87B840421C9F68790070E6EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				87B840471C9F687A0070E6EC /* PBXTargetDependency */,
-				87B840491C9F687A0070E6EC /* PBXTargetDependency */,
-			);
-			name = ArticleSummarizerKitTests;
-			productName = ArticleSummarizerKitTests;
-			productReference = 87B840441C9F68790070E6EC /* ArticleSummarizerKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		87D26D271C9F431A000DE9E9 /* SummarizerExtension */ = {
@@ -412,15 +290,6 @@
 						DevelopmentTeam = U9X42PLV7V;
 						TestTargetID = 87A4AE1F1C9354CB000D5E4A;
 					};
-					87B8403A1C9F68770070E6EC = {
-						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = U9X42PLV7V;
-					};
-					87B840431C9F68790070E6EC = {
-						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = U9X42PLV7V;
-						TestTargetID = 87A4AE1F1C9354CB000D5E4A;
-					};
 					87D26D271C9F431A000DE9E9 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = U9X42PLV7V;
@@ -448,8 +317,6 @@
 				87A4AE1F1C9354CB000D5E4A /* Article Summarizer */,
 				87A4AE331C9354CB000D5E4A /* Article SummarizerTests */,
 				87D26D271C9F431A000DE9E9 /* SummarizerExtension */,
-				87B8403A1C9F68770070E6EC /* ArticleSummarizerKit */,
-				87B840431C9F68790070E6EC /* ArticleSummarizerKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -466,20 +333,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		87A4AE321C9354CB000D5E4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		87B840391C9F68770070E6EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		87B840421C9F68790070E6EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,6 +406,8 @@
 				87A4AE261C9354CB000D5E4A /* SummaryController.swift in Sources */,
 				87798B151C9E5D6C000FC2C9 /* LoadingController.swift in Sources */,
 				87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */,
+				87262FBD1CA081C700D83A76 /* DiffbotArticleClient.swift in Sources */,
+				87262FBC1CA081C200D83A76 /* AylienSummarizerClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,23 +416,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A4AE391C9354CB000D5E4A /* Article_SummarizerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		87B840361C9F68770070E6EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87B8405B1C9F68B90070E6EC /* AylienSummarizerClient.swift in Sources */,
-				87B8405C1C9F68B90070E6EC /* DiffbotArticleClient.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		87B840401C9F68790070E6EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				87B8404C1C9F687C0070E6EC /* ArticleSummarizerKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,21 +434,6 @@
 			isa = PBXTargetDependency;
 			target = 87A4AE1F1C9354CB000D5E4A /* Article Summarizer */;
 			targetProxy = 87A4AE351C9354CB000D5E4A /* PBXContainerItemProxy */;
-		};
-		87B840471C9F687A0070E6EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 87B8403A1C9F68770070E6EC /* ArticleSummarizerKit */;
-			targetProxy = 87B840461C9F687A0070E6EC /* PBXContainerItemProxy */;
-		};
-		87B840491C9F687A0070E6EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 87A4AE1F1C9354CB000D5E4A /* Article Summarizer */;
-			targetProxy = 87B840481C9F687A0070E6EC /* PBXContainerItemProxy */;
-		};
-		87B8404F1C9F687C0070E6EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 87B8403A1C9F68770070E6EC /* ArticleSummarizerKit */;
-			targetProxy = 87B8404E1C9F687C0070E6EC /* PBXContainerItemProxy */;
 		};
 		87D26D311C9F431D000DE9E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -791,72 +614,6 @@
 			};
 			name = Release;
 		};
-		87B840531C9F687C0070E6EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ArticleSummarizerKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.ArticleSummarizerKit;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		87B840541C9F687C0070E6EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ArticleSummarizerKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.ArticleSummarizerKit;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		87B840571C9F687C0070E6EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ArticleSummarizerKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.ArticleSummarizerKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Article Summarizer.app/Article Summarizer";
-			};
-			name = Debug;
-		};
-		87B840581C9F687C0070E6EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ArticleSummarizerKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahajbhatt.ArticleSummarizerKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Article Summarizer.app/Article Summarizer";
-			};
-			name = Release;
-		};
 		87D26D341C9F431D000DE9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -929,22 +686,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		87B840521C9F687C0070E6EC /* Build configuration list for PBXNativeTarget "ArticleSummarizerKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				87B840531C9F687C0070E6EC /* Debug */,
-				87B840541C9F687C0070E6EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		87B840561C9F687C0070E6EC /* Build configuration list for PBXNativeTarget "ArticleSummarizerKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				87B840571C9F687C0070E6EC /* Debug */,
-				87B840581C9F687C0070E6EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 		87D26D331C9F431D000DE9E9 /* Build configuration list for PBXNativeTarget "SummarizerExtension" */ = {
 			isa = XCConfigurationList;
