@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		87262FBC1CA081C200D83A76 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */; };
 		87262FBD1CA081C700D83A76 /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */; };
+		87262FC21CA083A700D83A76 /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FBF1CA083A700D83A76 /* DiffbotArticleClient.swift */; };
+		87262FC31CA083A700D83A76 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC11CA083A700D83A76 /* AylienSummarizerClient.swift */; };
+		87262FC61CA083BE00D83A76 /* MainExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87262FC41CA083BE00D83A76 /* MainExtension.storyboard */; };
+		87262FC91CA0849000D83A76 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC71CA0849000D83A76 /* LoadingController.swift */; };
+		87262FCA1CA0849000D83A76 /* SummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC81CA0849000D83A76 /* SummaryController.swift */; };
 		874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87798B151C9E5D6C000FC2C9 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798B141C9E5D6C000FC2C9 /* LoadingController.swift */; };
 		87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE231C9354CB000D5E4A /* AppDelegate.swift */; };
@@ -19,7 +24,6 @@
 		87A4AE391C9354CB000D5E4A /* Article_SummarizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */; };
 		87B840351C9F66CD0070E6EC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87D26D2B1C9F431D000DE9E9 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D26D2A1C9F431D000DE9E9 /* ActionViewController.swift */; };
-		87D26D2E1C9F431D000DE9E9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D26D2C1C9F431D000DE9E9 /* MainInterface.storyboard */; };
 		87D26D321C9F431D000DE9E9 /* SummarizerExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		87D26D381C9F450A000DE9E9 /* GetURL.js in Resources */ = {isa = PBXBuildFile; fileRef = 87D26D371C9F450A000DE9E9 /* GetURL.js */; };
 /* End PBXBuildFile section */
@@ -67,6 +71,11 @@
 
 /* Begin PBXFileReference section */
 		8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AylienSummarizerClient.swift; sourceTree = "<group>"; };
+		87262FBF1CA083A700D83A76 /* DiffbotArticleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffbotArticleClient.swift; sourceTree = "<group>"; };
+		87262FC11CA083A700D83A76 /* AylienSummarizerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AylienSummarizerClient.swift; sourceTree = "<group>"; };
+		87262FC51CA083BE00D83A76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainExtension.storyboard; sourceTree = "<group>"; };
+		87262FC71CA0849000D83A76 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
+		87262FC81CA0849000D83A76 /* SummaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryController.swift; sourceTree = "<group>"; };
 		874A67601C9B48F100A150F3 /* Xcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Xcode.app; path = ../../../../../Applications/Xcode.app; sourceTree = "<group>"; };
 		874A67631C9B4B0E00A150F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		87798B141C9E5D6C000FC2C9 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
@@ -86,7 +95,6 @@
 		87D26D231C9F40D9000DE9E9 /* Article Summarizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Article Summarizer.entitlements"; sourceTree = "<group>"; };
 		87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SummarizerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D26D2A1C9F431D000DE9E9 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
-		87D26D2D1C9F431D000DE9E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		87D26D2F1C9F431D000DE9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87D26D361C9F4330000DE9E9 /* SummarizerExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SummarizerExtension.entitlements; sourceTree = "<group>"; };
 		87D26D371C9F450A000DE9E9 /* GetURL.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = GetURL.js; sourceTree = "<group>"; };
@@ -123,6 +131,22 @@
 			isa = PBXGroup;
 			children = (
 				8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */,
+			);
+			path = AylienSummarizerClient;
+			sourceTree = "<group>";
+		};
+		87262FBE1CA083A700D83A76 /* DiffbotArticleClient */ = {
+			isa = PBXGroup;
+			children = (
+				87262FBF1CA083A700D83A76 /* DiffbotArticleClient.swift */,
+			);
+			path = DiffbotArticleClient;
+			sourceTree = "<group>";
+		};
+		87262FC01CA083A700D83A76 /* AylienSummarizerClient */ = {
+			isa = PBXGroup;
+			children = (
+				87262FC11CA083A700D83A76 /* AylienSummarizerClient.swift */,
 			);
 			path = AylienSummarizerClient;
 			sourceTree = "<group>";
@@ -186,9 +210,13 @@
 		87D26D291C9F431A000DE9E9 /* SummarizerExtension */ = {
 			isa = PBXGroup;
 			children = (
+				87262FC01CA083A700D83A76 /* AylienSummarizerClient */,
+				87262FBE1CA083A700D83A76 /* DiffbotArticleClient */,
 				87D26D361C9F4330000DE9E9 /* SummarizerExtension.entitlements */,
 				87D26D2A1C9F431D000DE9E9 /* ActionViewController.swift */,
-				87D26D2C1C9F431D000DE9E9 /* MainInterface.storyboard */,
+				87262FC71CA0849000D83A76 /* LoadingController.swift */,
+				87262FC81CA0849000D83A76 /* SummaryController.swift */,
+				87262FC41CA083BE00D83A76 /* MainExtension.storyboard */,
 				87D26D2F1C9F431D000DE9E9 /* Info.plist */,
 				87D26D371C9F450A000DE9E9 /* GetURL.js */,
 				87B8405E1C9F6A400070E6EC /* SummarizerExtension-Bridging-Header.h */,
@@ -343,7 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87D26D2E1C9F431D000DE9E9 /* MainInterface.storyboard in Resources */,
+				87262FC61CA083BE00D83A76 /* MainExtension.storyboard in Resources */,
 				87D26D381C9F450A000DE9E9 /* GetURL.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +451,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87262FC91CA0849000D83A76 /* LoadingController.swift in Sources */,
+				87262FC31CA083A700D83A76 /* AylienSummarizerClient.swift in Sources */,
+				87262FC21CA083A700D83A76 /* DiffbotArticleClient.swift in Sources */,
 				87D26D2B1C9F431D000DE9E9 /* ActionViewController.swift in Sources */,
+				87262FCA1CA0849000D83A76 /* SummaryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +475,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		87262FC41CA083BE00D83A76 /* MainExtension.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87262FC51CA083BE00D83A76 /* Base */,
+			);
+			name = MainExtension.storyboard;
+			sourceTree = "<group>";
+		};
 		87A4AE271C9354CB000D5E4A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,14 +497,6 @@
 				87A4AE2D1C9354CB000D5E4A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		87D26D2C1C9F431D000DE9E9 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87D26D2D1C9F431D000DE9E9 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
