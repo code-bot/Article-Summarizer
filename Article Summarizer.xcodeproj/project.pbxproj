@@ -14,6 +14,7 @@
 		87262FC61CA083BE00D83A76 /* MainExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87262FC41CA083BE00D83A76 /* MainExtension.storyboard */; };
 		87262FC91CA0849000D83A76 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC71CA0849000D83A76 /* LoadingController.swift */; };
 		87262FCA1CA0849000D83A76 /* SummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC81CA0849000D83A76 /* SummaryController.swift */; };
+		87262FCC1CA0874200D83A76 /* AdditionalInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FCB1CA0874200D83A76 /* AdditionalInfoController.swift */; };
 		874A67641C9B4B0F00A150F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 874A67631C9B4B0E00A150F3 /* libz.tbd */; };
 		87798B151C9E5D6C000FC2C9 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87798B141C9E5D6C000FC2C9 /* LoadingController.swift */; };
 		87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A4AE231C9354CB000D5E4A /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		87262FC51CA083BE00D83A76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainExtension.storyboard; sourceTree = "<group>"; };
 		87262FC71CA0849000D83A76 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
 		87262FC81CA0849000D83A76 /* SummaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryController.swift; sourceTree = "<group>"; };
+		87262FCB1CA0874200D83A76 /* AdditionalInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInfoController.swift; sourceTree = "<group>"; };
 		874A67601C9B48F100A150F3 /* Xcode.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Xcode.app; path = ../../../../../Applications/Xcode.app; sourceTree = "<group>"; };
 		874A67631C9B4B0E00A150F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		87798B141C9E5D6C000FC2C9 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				87D26D2A1C9F431D000DE9E9 /* ActionViewController.swift */,
 				87262FC71CA0849000D83A76 /* LoadingController.swift */,
 				87262FC81CA0849000D83A76 /* SummaryController.swift */,
+				87262FCB1CA0874200D83A76 /* AdditionalInfoController.swift */,
 				87262FC41CA083BE00D83A76 /* MainExtension.storyboard */,
 				87D26D2F1C9F431D000DE9E9 /* Info.plist */,
 				87D26D371C9F450A000DE9E9 /* GetURL.js */,
@@ -451,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87262FCC1CA0874200D83A76 /* AdditionalInfoController.swift in Sources */,
 				87262FC91CA0849000D83A76 /* LoadingController.swift in Sources */,
 				87262FC31CA083A700D83A76 /* AylienSummarizerClient.swift in Sources */,
 				87262FC21CA083A700D83A76 /* DiffbotArticleClient.swift in Sources */,

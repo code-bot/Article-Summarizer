@@ -17,10 +17,10 @@ class LoadingController: UIViewController {
     var summaryString = ""
     var articleTags = [NSDictionary]()
     var authURL = ""
+    var endExtension = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var finished = false;
         var sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
         
         // Get the item[s] we're handling from the extension context.
@@ -33,15 +33,24 @@ class LoadingController: UIViewController {
                 let dictionary = item as! NSDictionary
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
-                    sourceUrl = results["currentURL"] as! String
-                    print(sourceUrl)
+                    sourceUrl = results["currentUrl"] as! String
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        print(sourceUrl)
+                        self.loadSummary(sourceUrl)
+                    }
+                    
                 }
             })
         } else {
             print("error")
         }
-
         
+       
+
+    }
+    
+    func loadSummary(sourceUrl: String) {
+        var finished = false;
         //AYLIEN API Request
         AylienSummarizerClient.summarize(sourceUrl, params: nil) { (succeeded, data) -> () in
             if (succeeded) {
@@ -103,7 +112,6 @@ class LoadingController: UIViewController {
                 print("Diffbot api failed to access")
             }
         }
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -115,6 +123,8 @@ class LoadingController: UIViewController {
             vc.summaryText = self.summaryString
             vc.tags = self.articleTags
             vc.authorURL = self.authURL
+            vc.originalExtensionContext = self.extensionContext
+            self.endExtension = true;
         }
     }
     

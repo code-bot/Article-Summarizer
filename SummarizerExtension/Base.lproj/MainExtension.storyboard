@@ -56,6 +56,11 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Summary" id="xOC-ln-aOW">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="wqC-5V-ryz">
+                                            <connections>
+                                                <action selector="done:" destination="BYZ-38-t0r" id="3kP-xc-AFM"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="View Full Text" id="vIQ-rb-8UW"/>
                                     </navigationItem>
                                 </items>
@@ -98,29 +103,73 @@
                             <constraint firstItem="gaP-gF-rkB" firstAttribute="centerX" secondItem="WCo-uE-Rcb" secondAttribute="centerX" id="MSc-cU-7Fj"/>
                             <constraint firstItem="gaP-gF-rkB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vfm-fl-FPa"/>
                             <constraint firstItem="WCo-uE-Rcb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="emf-Sg-CmQ"/>
-                            <constraint firstItem="mZN-wc-XNV" firstAttribute="top" secondItem="gaP-gF-rkB" secondAttribute="bottom" constant="5" id="ltV-G5-Tge"/>
-                            <constraint firstItem="gaP-gF-rkB" firstAttribute="bottom" secondItem="mZN-wc-XNV" secondAttribute="top" id="nTr-3o-Bqp"/>
                             <constraint firstItem="gaP-gF-rkB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qE5-LA-t67"/>
                             <constraint firstItem="WCo-uE-Rcb" firstAttribute="top" secondItem="yrQ-Gb-2ow" secondAttribute="bottom" id="sxm-Vr-owx"/>
                             <constraint firstItem="WCo-uE-Rcb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vNg-ME-FWG"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="nTr-3o-Bqp"/>
-                                <exclude reference="ltV-G5-Tge"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="authorButton" destination="NWk-lp-rFU" id="y7D-g6-72N"/>
                         <outlet property="publicationLabel" destination="l1b-eS-T1J" id="Sir-XS-MoA"/>
                         <outlet property="titleLabel" destination="u0X-yz-Zay" id="3dg-3k-DlI"/>
                         <outlet property="webView" destination="2fE-pW-4UK" id="aBD-xZ-htR"/>
+                        <segue destination="wJP-Cq-5AN" kind="presentation" identifier="showAdditionalInfo" id="dsY-4c-lSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="354" y="266"/>
+        </scene>
+        <!--Additional Info Controller-->
+        <scene sceneID="CBs-F2-1t6">
+            <objects>
+                <viewController id="wJP-Cq-5AN" userLabel="Additional Info Controller" customClass="AdditionalInfoController" customModule="SummarizerExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tfc-Ex-oZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="5FP-Ru-sc5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d3d-IR-ruX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-Ya-c6r">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="8Ax-jh-geT">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="c7o-Ah-Ks2">
+                                            <connections>
+                                                <action selector="back:" destination="wJP-Cq-5AN" id="DbX-1S-2i4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwc-8X-KiF">
+                                <rect key="frame" x="20" y="74" width="560" height="521"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Iwc-8X-KiF" firstAttribute="leading" secondItem="d3d-IR-ruX" secondAttribute="leadingMargin" id="64Q-je-lUP"/>
+                            <constraint firstAttribute="trailing" secondItem="Pnf-Ya-c6r" secondAttribute="trailing" id="A9e-VG-qmO"/>
+                            <constraint firstItem="Iwc-8X-KiF" firstAttribute="top" secondItem="Pnf-Ya-c6r" secondAttribute="bottom" constant="10" id="IRU-gG-voa"/>
+                            <constraint firstItem="Iwc-8X-KiF" firstAttribute="centerX" secondItem="Pnf-Ya-c6r" secondAttribute="centerX" id="LA7-eW-uGv"/>
+                            <constraint firstItem="Iwc-8X-KiF" firstAttribute="trailing" secondItem="d3d-IR-ruX" secondAttribute="trailingMargin" id="NE9-Hs-sye"/>
+                            <constraint firstItem="Pnf-Ya-c6r" firstAttribute="leading" secondItem="d3d-IR-ruX" secondAttribute="leading" id="XBs-KY-JhG"/>
+                            <constraint firstItem="Iwc-8X-KiF" firstAttribute="centerX" secondItem="d3d-IR-ruX" secondAttribute="centerX" id="jG6-pB-U98"/>
+                            <constraint firstItem="Pnf-Ya-c6r" firstAttribute="top" secondItem="tfc-Ex-oZ4" secondAttribute="bottom" id="rFx-8U-ttE"/>
+                            <constraint firstItem="5FP-Ru-sc5" firstAttribute="top" secondItem="Iwc-8X-KiF" secondAttribute="bottom" constant="5" id="vFl-Dk-ahy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="navBar" destination="Pnf-Ya-c6r" id="qq2-ij-gGn"/>
+                        <outlet property="webView" destination="Iwc-8X-KiF" id="ab6-mc-Kpw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Boo-JE-DXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="354" y="968"/>
         </scene>
     </scenes>
 </document>

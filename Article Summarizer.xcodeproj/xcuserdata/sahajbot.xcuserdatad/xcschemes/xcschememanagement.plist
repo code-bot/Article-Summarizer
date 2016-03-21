@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>ShareExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>SummarizerExtension.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>87262FD01CA0932100D83A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>87A4AE1F1C9354CB000D5E4A</key>
 		<dict>
 			<key>primary</key>

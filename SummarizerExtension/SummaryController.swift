@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class SummaryController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,6 +21,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     var summaryHTML = ""
     var tags = [NSDictionary]()
     var authorURL = ""
+    var originalExtensionContext: NSExtensionContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +49,34 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func loadAuthorPage(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
+        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorURL])
+        //UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
     }
     
     //Hyperlink tapped within webview
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         //Open link via safari
         if navigationType == UIWebViewNavigationType.LinkClicked {
-            UIApplication.sharedApplication().openURL(request.URL!)
+            performSegueWithIdentifier("showAdditionalInfo", sender: ["Additional Info", request.URL!.absoluteString])
+            //UIApplication.sharedApplication().openURL(request.URL!)
             return false
         }
         return true
+    }
+    @IBAction func done(sender: AnyObject) {
+        // Echo the passed in items
+        //print(self.extensionContext!)
+        //self.dismissViewControllerAnimated(false, completion: nil)
+        self.originalExtensionContext!.completeRequestReturningItems(self.originalExtensionContext!.inputItems, completionHandler: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? AdditionalInfoController {
+            if let params = sender as? [String] {
+                vc.infoType = params[0]
+                vc.sourceUrl = params[1]
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -68,6 +68,4 @@ class SummaryController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    
 }
-
