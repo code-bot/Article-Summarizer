@@ -8,7 +8,7 @@
 
 import UIKit
 import MobileCoreServices
-import Article_Summarizer
+import ArticleSummarizerKit
 
 class ActionViewController: UIViewController {
 
@@ -31,74 +31,72 @@ class ActionViewController: UIViewController {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
                     sourceUrl = results["currentURL"] as! String
+                    print(sourceUrl)
                 }
             })
         } else {
             print("error")
         }
         
-        //AYLIEN API Request
-        AylienSummarizerClient.summarize(sourceUrl, params: nil) { (succeeded, data) -> () in
-            if (succeeded) {
-                print("Aylien api accessed")
-                
-                if let sentences = data!["sentences"] {
-                    for sentence in sentences as! [String] {
-                        self.summaryString += sentence + " "
-                    }
-                }
-                
-                //Wait until both APIs are accessed before loading summary
-                if (finished) {
-                    self.performSegueWithIdentifier("showSummary", sender: nil)
-                } else {
-                    finished = true
-                }
-            } else {
-                print("Aylien api failed to access")
-            }
-        }
-        
-        
-        
-        //Diffbot API Request
-        DiffbotAPIClient.apiRequest(DiffbotArticleRequest, urlString: sourceUrl, optionalArgs: nil, format: DiffbotAPIFormatJSON) { (success: Bool, result: AnyObject?) in
-            if (success) {
-                print("Diffbot api accessed")
-                
-                if let dict = result as! NSDictionary? {
-                    if let objects = dict["objects"] as! NSArray? {
-                        let info = objects[0] as! NSDictionary
-                        print(info)
-                        if let title = info["title"] {
-                            self.articleTitle = title as! String
-                        }
-                        if let author = info["author"] {
-                            self.articleAuthor = author as! String
-                        }
-                        if let date = info["date"] {
-                            self.articlePublication = (date as! String).substringToIndex((date as! String).startIndex.advancedBy(16))
-                        }
-                        if let tags = info["tags"] {
-                            self.articleTags = tags as! [NSDictionary]
-                        }
-                        if let authURL = info["authorUrl"] {
-                            self.authURL = authURL as! String
-                        }
-                    }
-                }
-                
-                //Wait until both APIs are accessed before loading summary
-                if (finished) {
-                    self.performSegueWithIdentifier("showSummary", sender: nil)
-                } else {
-                    finished = true
-                }
-            } else {
-                print("Diffbot api failed to access")
-            }
-        }
-
+//        //AYLIEN API Request
+//        AylienSummarizerClient.summarize(sourceUrl, params: nil) { (succeeded, data) -> () in
+//            if (succeeded) {
+//                print("Aylien api accessed")
+//                
+//                if let sentences = data!["sentences"] {
+//                    for sentence in sentences as! [String] {
+//                        self.summaryString += sentence + " "
+//                    }
+//                }
+//                
+//                //Wait until both APIs are accessed before loading summary
+//                if (finished) {
+//                    self.performSegueWithIdentifier("showSummary", sender: nil)
+//                } else {
+//                    finished = true
+//                }
+//            } else {
+//                print("Aylien api failed to access")
+//            }
+//        }
+//        
+//        //Diffbot API Request
+//        DiffbotArticleClient.analyze(sourceUrl, params: nil) { (succeeded, data) -> () in
+//            if (succeeded) {
+//                print("Diffbot api accessed")
+//                
+//                if let dict = data as! NSDictionary? {
+//                    if let objects = dict["objects"] as! NSArray? {
+//                        let info = objects[0] as! NSDictionary
+//                        print(info)
+//                        if let title = info["title"] {
+//                            self.articleTitle = title as! String
+//                        }
+//                        if let author = info["author"] {
+//                            self.articleAuthor = author as! String
+//                        }
+//                        if let date = info["date"] {
+//                            self.articlePublication = (date as! String).substringToIndex((date as! String).startIndex.advancedBy(16))
+//                        }
+//                        if let tags = info["tags"] {
+//                            self.articleTags = tags as! [NSDictionary]
+//                        }
+//                        if let authURL = info["authorUrl"] {
+//                            self.authURL = authURL as! String
+//                        }
+//                    }
+//                }
+//                
+//                //Wait until both APIs are accessed before loading summary
+//                if (finished) {
+//                    self.performSegueWithIdentifier("showSummary", sender: nil)
+//                } else {
+//                    finished = true
+//                }
+//            } else {
+//                print("Diffbot api failed to access")
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

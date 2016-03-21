@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "87D26D161C9F3E94000DE9E9"
-               BuildableName = "ArticleSharing.appex"
-               BlueprintName = "ArticleSharing"
+               BlueprintIdentifier = "87B8401A1C9F55F30070E6EC"
+               BuildableName = "SummarizerShareExtension.appex"
+               BlueprintName = "SummarizerShareExtension"
                ReferencedContainer = "container:Article Summarizer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

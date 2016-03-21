@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ArticleSummarizerKit
 
 class LoadingController: UIViewController {
     
@@ -19,7 +20,7 @@ class LoadingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var finished = false;
+        var finished = true;
         let sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
         
         //AYLIEN API Request
@@ -31,8 +32,10 @@ class LoadingController: UIViewController {
                     for sentence in sentences as! [String] {
                         self.summaryString += sentence + " "
                     }
+                    print(sentences)
                 }
-                
+                print("done")
+                print(finished)
                 //Wait until both APIs are accessed before loading summary
                 if (finished) {
                     self.performSegueWithIdentifier("showSummary", sender: nil)
@@ -45,44 +48,43 @@ class LoadingController: UIViewController {
         }
         
         
-        
-        //Diffbot API Request
-        DiffbotAPIClient.apiRequest(DiffbotArticleRequest, urlString: sourceUrl, optionalArgs: nil, format: DiffbotAPIFormatJSON) { (success: Bool, result: AnyObject?) in
-            if (success) {
-                print("Diffbot api accessed")
-                
-                if let dict = result as! NSDictionary? {
-                    if let objects = dict["objects"] as! NSArray? {
-                        let info = objects[0] as! NSDictionary
-                        print(info)
-                        if let title = info["title"] {
-                            self.articleTitle = title as! String
-                        }
-                        if let author = info["author"] {
-                            self.articleAuthor = author as! String
-                        }
-                        if let date = info["date"] {
-                            self.articlePublication = (date as! String).substringToIndex((date as! String).startIndex.advancedBy(16))
-                        }
-                        if let tags = info["tags"] {
-                            self.articleTags = tags as! [NSDictionary]
-                        }
-                        if let authURL = info["authorUrl"] {
-                            self.authURL = authURL as! String
-                        }
-                    }
-                }
-                
-                //Wait until both APIs are accessed before loading summary
-                if (finished) {
-                    self.performSegueWithIdentifier("showSummary", sender: nil)
-                } else {
-                    finished = true
-                }
-            } else {
-                print("Diffbot api failed to access")
-            }
-        }
+//        //Diffbot API Request
+//        DiffbotArticleClient.analyze(sourceUrl, params: nil) { (succeeded, data) -> () in
+//            if (succeeded) {
+//                print("Diffbot api accessed")
+//                if let objects = data!["objects"] as! NSArray? {
+//                    print("hi")
+//                    let info = objects[0] as! NSDictionary
+//                    print(info)
+//                    if let title = info["title"] {
+//                        self.articleTitle = title as! String
+//                    }
+//                    if let author = info["author"] {
+//                        self.articleAuthor = author as! String
+//                    }
+//                    if let date = info["date"] {
+//                        self.articlePublication = (date as! String).substringToIndex((date as! String).startIndex.advancedBy(16))
+//                    }
+//                    if let tags = info["tags"] {
+//                        self.articleTags = tags as! [NSDictionary]
+//                    }
+//                    if let authURL = info["authorUrl"] {
+//                        self.authURL = authURL as! String
+//                    }
+//                }
+//                print(finished)
+//                //Wait until both APIs are accessed before loading summary
+//                if (finished) {
+//                    print("segue")
+//                    self.performSegueWithIdentifier("showSummary", sender: nil)
+//                } else {
+//                    print("not segue")
+//                    finished = true
+//                }
+//            } else {
+//                print("Diffbot api failed to access")
+//            }
+//        }
 
     }
     

@@ -1,28 +1,23 @@
 //
-//  AylienSummarizerClient.swift
+//  DiffbotArticleClient.swift
 //  Article Summarizer
 //
-//  Created by Sahaj Bhatt on 3/18/16.
+//  Created by Sahaj Bhatt on 3/20/16.
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
 
+let Diffbot_API_Token = "e9f92e911efc248037f969b3886f6169"
+let Diffbot_Base_URL = "http://api.diffbot.com/v3/article"
 
-let AYLIEN_TextAPI_App_Key = "9cec5357fbdf8eece817054e0d153141"
-let AYLIEN_TextAPI_App_ID = "ced832ab"
-let AYLIEN_Base_URL = "https://api.aylien.com/api/v1/summarize"
-
-public class AylienSummarizerClient {
-    
+public class DiffbotArticleClient {
     //Summarizes the article on the provided url
     //Additional parameters can be passed in to edit the number of sentences and the language
-    public static func summarize(articleURL : String, params : NSDictionary?, withCallback : (succeeded: Bool, data : NSDictionary?) -> ()) {
+    public static func analyze(articleURL : String, params : NSDictionary?, withCallback : (succeeded: Bool, data : NSDictionary?) -> ()) {
         let paramsString = convertParams(params)
-        let urlString = AYLIEN_Base_URL + "?url=" + articleURL.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())! + paramsString
+        let urlString = Diffbot_Base_URL + "?token=" + Diffbot_API_Token + "&url=" + articleURL.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())! + paramsString
         let url = NSURL(string: urlString)
         
         let request = NSMutableURLRequest(URL: url!)
-        request.addValue(AYLIEN_TextAPI_App_Key, forHTTPHeaderField: "X-AYLIEN-TextAPI-Application-Key")
-        request.addValue(AYLIEN_TextAPI_App_ID, forHTTPHeaderField: "X-AYLIEN-TextAPI-Application-ID")
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
@@ -58,4 +53,5 @@ public class AylienSummarizerClient {
         }
         return paramString
     }
+
 }
