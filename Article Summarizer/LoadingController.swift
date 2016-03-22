@@ -17,11 +17,11 @@ class LoadingController: UIViewController {
     var summaryString = ""
     var articleTags = [NSDictionary]()
     var authURL = ""
+    var sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var finished = false;
-        let sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
         
         //AYLIEN API Request
         AylienSummarizerClient.summarize(sourceUrl, params: nil) { (succeeded, data) -> () in
@@ -96,6 +96,7 @@ class LoadingController: UIViewController {
             vc.summaryText = self.summaryString
             vc.tags = self.articleTags
             vc.authorURL = self.authURL
+            vc.sourceURL = self.sourceUrl
         }
     }
     

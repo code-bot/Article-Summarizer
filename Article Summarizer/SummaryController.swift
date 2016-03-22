@@ -23,6 +23,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     var summaryHTML = ""
     var tags = [NSDictionary]()
     var authorURL = ""
+    var sourceURL = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +51,37 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func loadAuthorPage(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
+        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorURL])
     }
     
     //Hyperlink tapped within webview
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         //Open link via safari
         if navigationType == UIWebViewNavigationType.LinkClicked {
-            UIApplication.sharedApplication().openURL(request.URL!)
+            performSegueWithIdentifier("showAdditionalInfo", sender: ["Additional Info", request.URL!.absoluteString])
             return false
         }
         return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? AdditionalInfoController {
+            if let params = sender as? [String] {
+                vc.infoType = params[0]
+                vc.sourceUrl = params[1]
+            }
+        }
+    }
+    
+    @IBAction func viewFullArticle(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: sourceURL)!)
+    }
+    
+    @IBAction func returnToSavedArticles(sender: AnyObject) {
+        let presentingVC = self.presentingViewController
+        self.dismissViewControllerAnimated(true, completion: {
+            presentingVC?.dismissViewControllerAnimated(false, completion: nil)
+        })
     }
 
     override func didReceiveMemoryWarning() {

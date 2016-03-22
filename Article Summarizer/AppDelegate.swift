@@ -15,14 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-//        let url = NSURL(string: "http://www.stackoverflow.com")
-//        
-//        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-//            println(NSString(data: data, encoding: NSUTF8StringEncoding))
-//        }
-//        
-//        task.resume()
+
         return true
     }
 
@@ -42,6 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let navController = self.window?.rootViewController as! UINavigationController
+        if let tableController = navController.visibleViewController as? StoredArticlesTableController {
+            tableController.viewDidAppear(false)
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {

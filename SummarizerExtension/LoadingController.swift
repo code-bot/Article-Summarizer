@@ -17,11 +17,13 @@ class LoadingController: UIViewController {
     var summaryString = ""
     var articleTags = [NSDictionary]()
     var authURL = ""
-    var endExtension = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
+        
+        
+        
         
         // Get the item[s] we're handling from the extension context.
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
@@ -36,6 +38,7 @@ class LoadingController: UIViewController {
                     sourceUrl = results["currentUrl"] as! String
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in
                         print(sourceUrl)
+                        
                         self.loadSummary(sourceUrl)
                     }
                     
@@ -49,6 +52,7 @@ class LoadingController: UIViewController {
 
     }
     
+    //Loads all relevant information about the article and the summary
     func loadSummary(sourceUrl: String) {
         var finished = false;
         //AYLIEN API Request
@@ -102,6 +106,14 @@ class LoadingController: UIViewController {
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     //Wait until both APIs are accessed before loading summary
+                    let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
+                    var storedInfo = myDefaults?.arrayForKey("urls")
+                    if (storedInfo == nil) {
+                        myDefaults?.setObject([["url":sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"date":self.articlePublication]], forKey: "urls")
+                    } else {
+                        storedInfo!.insert(["url":sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"date":self.articlePublication], atIndex: 0)
+                        myDefaults?.setObject(storedInfo!, forKey: "urls")
+                    }
                     if (finished) {
                         self.performSegueWithIdentifier("showSummary", sender: nil)
                     } else {
@@ -114,7 +126,9 @@ class LoadingController: UIViewController {
         }
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Transfer data to SummaryController when the segue is performed
         if let vc = segue.destinationViewController as? SummaryController {
             //Pass data to SummaryController
             vc.articleTitle = self.articleTitle
@@ -124,7 +138,6 @@ class LoadingController: UIViewController {
             vc.tags = self.articleTags
             vc.authorURL = self.authURL
             vc.originalExtensionContext = self.extensionContext
-            self.endExtension = true;
         }
     }
     

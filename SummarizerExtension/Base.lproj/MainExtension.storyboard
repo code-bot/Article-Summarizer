@@ -61,7 +61,6 @@
                                                 <action selector="done:" destination="BYZ-38-t0r" id="3kP-xc-AFM"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="View Full Text" id="vIQ-rb-8UW"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
