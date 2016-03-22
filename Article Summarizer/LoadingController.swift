@@ -16,17 +16,18 @@ class LoadingController: UIViewController {
     var articlePublication = ""
     var summaryString = ""
     var articleTags = [NSDictionary]()
+    var relatedPhrasesForTags = [[NSDictionary]]()
     var authURL = ""
     var sourceUrl = "http://www.cnn.com/2016/03/19/us/neanderthal-human-interbred-irpt/index.html"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var finished = false;
+        var apiFinished = false;
         
         //AYLIEN API Request
         AylienSummarizerClient.summarize(sourceUrl, params: nil) { (succeeded, data) -> () in
             if (succeeded) {
-                print("Aylien api accessed")
+                print("Aylien api accessed: Summarizer")
                 
                 if let sentences = data!["sentences"] {
                     for sentence in sentences as! [String] {
@@ -36,23 +37,23 @@ class LoadingController: UIViewController {
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     //Wait until both APIs are accessed before loading summary
-                    if (finished) {
+                    if (apiFinished) {
                         self.performSegueWithIdentifier("showSummary", sender: nil)
                     } else {
-                        finished = true
+                        apiFinished = true
                     }
                 }
                 
             } else {
-                print("Aylien api failed to access")
+                print("Aylien api failed to access: Summarizer")
             }
         }
         
         
         //Diffbot API Request
-        DiffbotArticleClient.analyze(sourceUrl, params: nil) { (succeeded, data) -> () in
+        DiffbotArticleClient.analyze(self.sourceUrl, params: nil) { (succeeded, data) -> () in
             if (succeeded) {
-                print("Diffbot api accessed")
+                print("Diffbot api accessed: Article Analyze")
                 if let objects = data!["objects"] as! NSArray? {
                     let info = objects[0] as! NSDictionary
                     if let title = info["title"] {
@@ -66,6 +67,7 @@ class LoadingController: UIViewController {
                     }
                     if let tags = info["tags"] {
                         self.articleTags = tags as! [NSDictionary]
+                        print(tags)
                     }
                     if let authURL = info["authorUrl"] {
                         self.authURL = authURL as! String
@@ -73,19 +75,43 @@ class LoadingController: UIViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    var tagsFinished = 0
+                    var relatedPhrasesDone = true
+                    while (tagsFinished < self.articleTags.count) {
+                        if (relatedPhrasesDone && tagsFinished < self.articleTags.count) {
+                            let tag = self.articleTags[tagsFinished]
+                            //self.relatedPhrasesForTags.append(["label":tag["label"] as! String])
+                            AylienSummarizerClient.relatedPhrases(tag["label"] as! String) { (succeeded, data) -> () in
+                                if (succeeded) {
+                                    print("Aylien api accessed: Related Phrases")
+                                    if let phrases = data {
+                                        self.relatedPhrasesForTags.append(phrases)
+                                    }
+                                } else {
+                                    print("Aylien api failed to access: Related Phrases")
+                                }
+                                tagsFinished++
+                                relatedPhrasesDone = true
+                            }
+                            relatedPhrasesDone = false
+                        }
+                    }
                     //Wait until both APIs are accessed before loading summary
-                    if (finished) {
+                    if (tagsFinished == self.articleTags.count && apiFinished) {
                         self.performSegueWithIdentifier("showSummary", sender: nil)
                     } else {
-                        finished = true
+                        apiFinished = true
                     }
                 }
+                
             } else {
-                print("Diffbot api failed to access")
+                print("Diffbot api failed to access: Article Analyze")
             }
         }
-
+        print("hey")
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let vc = segue.destinationViewController as? SummaryController {
@@ -97,6 +123,7 @@ class LoadingController: UIViewController {
             vc.tags = self.articleTags
             vc.authorURL = self.authURL
             vc.sourceURL = self.sourceUrl
+            vc.relatedPhrasesForTags = self.relatedPhrasesForTags
         }
     }
     
