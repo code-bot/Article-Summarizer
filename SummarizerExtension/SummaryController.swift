@@ -20,14 +20,17 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     var summaryText = ""
     var summaryHTML = ""
     var tags = [NSDictionary]()
-    var authorURL = ""
+    var relatedPhrasesForTags = [[NSDictionary]]()
+    var authorUrl = ""
+    var sourceUrl = ""
     var originalExtensionContext: NSExtensionContext?
+    var articleExists = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel.text = articleTitle
         self.authorButton.setTitle(articleAuthor, forState: UIControlState.Normal)
-        if (authorURL == "") {
+        if (authorUrl == "") {
             self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = false
         } else {
@@ -36,11 +39,41 @@ class SummaryController: UIViewController, UIWebViewDelegate {
         }
         self.publicationLabel.text = articlePublication
         
-        //Convert summary to HTML text and add hyperlinks around key words in text
-        summaryHTML = "<p>" + summaryText + "</p>"
-        for tag in tags {
-            summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tag["label"] as! String, withString: "<a href=" + (tag["uri"] as! String) + ">" + (tag["label"] as! String) + "</a>")
-            print(tag["label"] as! String)
+        if (!articleExists) {
+            //Convert summary to HTML text and add hyperlinks around key words in text
+            summaryHTML = "<p>" + summaryText + "</p>"
+            for (index,tag) in tags.enumerate() {
+                print(tag)
+                let tagLabel = (tag["label"] as! String).stringByReplacingOccurrencesOfString(")", withString: "").stringByReplacingOccurrencesOfString("(", withString: "")
+                let range = summaryHTML.rangeOfString(tagLabel, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                if (range != nil) {
+                    summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tagLabel, withString: "<a href=https://en.wikipedia.org/wiki/" + (tagLabel).stringByReplacingOccurrencesOfString(" ", withString: "_") + ">" + summaryHTML.substringWithRange(range!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range!)
+                } else {
+                    var phraseIndex = 0
+                    while (phraseIndex < relatedPhrasesForTags[index].count) {
+                        let rangeOfRelatedPhrase = summaryHTML.rangeOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                        if (rangeOfRelatedPhrase != nil) {
+                            summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, withString: "<a href=https://en.wikipedia.org/wiki/" + (tag["label"] as! String).stringByReplacingOccurrencesOfString(" ", withString: "_") + ">" + summaryHTML.substringWithRange(rangeOfRelatedPhrase!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: rangeOfRelatedPhrase!)
+                            phraseIndex = relatedPhrasesForTags[index].count
+                        } else {
+                            phraseIndex++
+                        }
+                    }
+                }
+                
+            }
+            
+            //Store article information for viewing in main app
+            let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
+            var storedInfo = myDefaults?.arrayForKey("urls")
+            if (storedInfo == nil) {
+                myDefaults?.setObject([["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML]], forKey: "urls")
+            } else {
+                storedInfo!.insert(["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML], atIndex: 0)
+                myDefaults?.setObject(storedInfo!, forKey: "urls")
+            }
+        } else {
+            summaryHTML = summaryText
         }
         
         webView.delegate = self
@@ -49,7 +82,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func loadAuthorPage(sender: AnyObject) {
-        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorURL])
+        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorUrl])
         //UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
     }
     

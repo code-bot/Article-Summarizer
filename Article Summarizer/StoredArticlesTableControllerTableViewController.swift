@@ -16,6 +16,9 @@ class StoredArticlesTableController: UITableViewController {
         super.viewDidLoad()
         let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
         storedInfo = myDefaults?.objectForKey("urls") as? [NSDictionary]
+        if (storedInfo == nil) {
+            storedInfo = [NSDictionary]()
+        }
         tableView.reloadData()
     }
     
@@ -47,9 +50,10 @@ class StoredArticlesTableController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath: indexPath) as! StoredArticlesTableViewCell
         
         let article = storedInfo![indexPath.row]
-        cell.titleLabel.text = article["title"] as? String
-        cell.authorLabel.text = article["author"] as? String
-        cell.dateLabel.text = article["date"] as? String
+        cell.titleLabel.text = (article["title"] as! String)
+        cell.authorLabel.text = (article["author"] as! String)
+        let date = (article["publication"] as! String)
+        cell.dateLabel.text = date.substringWithRange(Range<String.Index>(start: date.endIndex.advancedBy(-16), end: date.endIndex))
         
 
         return cell
@@ -65,12 +69,18 @@ class StoredArticlesTableController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("loadSummary", sender: storedInfo![indexPath.row]["url"] as! String)
+        performSegueWithIdentifier("showSummary", sender: storedInfo![indexPath.row])
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? LoadingController {
-            vc.sourceUrl = sender as! String
+        if let vc = segue.destinationViewController as? SummaryController {
+            let info = sender as! NSDictionary
+            vc.sourceUrl = info["url"] as! String
+            vc.articleTitle = info["title"] as! String
+            vc.articleAuthor = info["author"] as! String
+            vc.authorUrl = info["authorUrl"] as! String
+            vc.articlePublication = info["publication"] as! String
+            vc.summaryHTML = info["summary"] as! String
         }
     }
 

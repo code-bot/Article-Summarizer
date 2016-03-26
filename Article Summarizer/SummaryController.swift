@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class SummaryController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,14 +21,17 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     var summaryHTML = ""
     var tags = [NSDictionary]()
     var relatedPhrasesForTags = [[NSDictionary]]()
-    var authorURL = ""
-    var sourceURL = ""
+    var authorUrl = ""
+    var sourceUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let fullArticleBtn = UIBarButtonItem(title: "View Full Article", style: .Plain, target: self, action: "viewFullArticle")
+        self.navigationItem.rightBarButtonItem = fullArticleBtn
         self.titleLabel.text = articleTitle
         self.authorButton.setTitle(articleAuthor, forState: UIControlState.Normal)
-        if (authorURL == "") {
+        if (authorUrl == "") {
             self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = false
         } else {
@@ -39,36 +40,13 @@ class SummaryController: UIViewController, UIWebViewDelegate {
         }
         self.publicationLabel.text = articlePublication
         
-        //Convert summary to HTML text and add hyperlinks around key words in text
-        summaryHTML = "<p>" + summaryText + "</p>"
-        for (index,tag) in tags.enumerate() {
-            print(tag)
-            let range = summaryHTML.rangeOfString(tag["label"] as! String, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            if (range != nil) {
-                summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tag["label"] as! String, withString: "<a href=" + (tag["uri"] as! String) + ">" + summaryHTML.substringWithRange(range!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range!)
-            } else {
-                var phraseIndex = 0
-                while (phraseIndex < relatedPhrasesForTags[index].count) {
-                    let rangeOfRelatedPhrase = summaryHTML.rangeOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                    if (rangeOfRelatedPhrase != nil) {
-                        print(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String)
-                        summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, withString: "<a href=" + (tag["uri"] as! String) + ">" + summaryHTML.substringWithRange(rangeOfRelatedPhrase!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: rangeOfRelatedPhrase!)
-                        phraseIndex = relatedPhrasesForTags[index].count
-                    } else {
-                        phraseIndex++
-                    }
-                }
-            }
-            
-        }
-        
         webView.delegate = self
         webView.scrollView.bounces = false
         webView.loadHTMLString(summaryHTML, baseURL: nil)
     }
     
     @IBAction func loadAuthorPage(sender: AnyObject) {
-        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorURL])
+        performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorUrl])
     }
     
     //Hyperlink tapped within webview
@@ -90,15 +68,8 @@ class SummaryController: UIViewController, UIWebViewDelegate {
         }
     }
     
-    @IBAction func viewFullArticle(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: sourceURL)!)
-    }
-    
-    @IBAction func returnToSavedArticles(sender: AnyObject) {
-        let presentingVC = self.presentingViewController
-        self.dismissViewControllerAnimated(true, completion: {
-            presentingVC?.dismissViewControllerAnimated(false, completion: nil)
-        })
+    func viewFullArticle() {
+        UIApplication.sharedApplication().openURL(NSURL(string: sourceUrl)!)
     }
 
     override func didReceiveMemoryWarning() {
