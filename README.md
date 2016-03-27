@@ -2,7 +2,7 @@
 ## Steps to Run the Application
 - Download the zip file
 - Within the downloaded folder, open the "SummarizerExtension" folder
-- Open "AylienSummarizerClient.swift" located in the "AylienSummarizerClient" folder using any text editor
+- Open the "AylienSummarizerClient" folder and open "AylienSummarizerClient.swift" using any text editor
 - At the top of the code, in the "API constants" section, add the AYLIEN App Key and App ID found in your Dashboard after logging into the AYLIEN Text Analysis website (https://developer.aylien.com). After adding the credentials, save the file and close it. **Make sure to remove "<>" angle brackets when adding the credentials**
 ```
 //
@@ -22,7 +22,7 @@ let AYLIEN_TextAPI_App_Key = "<INSERT API KEY>"
 let AYLIEN_TextAPI_App_ID = "<INSERT APP ID>"
 let AYLIEN_Base_URL = "https://api.aylien.com/api/v1"
 ```
-- Open "DiffbotArticleClient.swift" located in the "DiffbotArticleClient" folder using any text editor
+- Open the "DiffbotArticleClient" folder and open "DiffbotArticleClient.swift" using any text editor
 - At the top of the code, in the "API constants" section, add the Diffbot API Token found in your email after signing up for the Diffbot 2-week Free trial or in your dashboard if you are already logged into the Diffbot website (https://www.diffbot.com). After adding the credentials, save the file and close it. **Make sure to remove "<>" angle brackets when adding the credentials**
 ```
   //
@@ -41,7 +41,7 @@ let AYLIEN_Base_URL = "https://api.aylien.com/api/v1"
   let Diffbot_API_Token = "<INSERT DIFFBOT API TOKEN>"
   let Diffbot_Base_URL = "http://api.diffbot.com/v3/article"
 ```
-- Return to the root folder and open "ArticleSummarizer.xcodeproj"
+- Return to the root folder and open "ArticleSummarizer.xcodeproj." **Make sure XCode has been updated to the latest version**
 - On the top bar, next to the play and stop button, select the target and set it to "Article Summarizer"
 <img width="362" alt="screen shot 2016-03-26 at 11 22 10 pm" src="https://cloud.githubusercontent.com/assets/11774230/14063728/0acd834a-f3ac-11e5-9530-7eee9d722e23.png">  
 <img width="596" alt="screen shot 2016-03-26 at 11 22 25 pm" src="https://cloud.githubusercontent.com/assets/11774230/14063715/07b7573a-f3ac-11e5-9a6c-b2650d692f7f.png">
