@@ -1,0 +1,21 @@
+# Article-Summarizer
+Steps to Run the Application
+----------------------------
+- Download the zip file
+- Within the downloaded folder, open the "SummarizerExtension" folder
+- Open "AylienSummarizerClient.swift" located in the "AylienSummarizerClient" folder using any text editor
+- At the top of the code, in the "API constants" section, add the AYLIEN App Key and App ID found in your Dashboard after logging into the AYLIEN Text Analysis website (https://developer.aylien.com). After adding the credentials, save the file and close it.
+- Open "DiffbotArticleClient.swift" located in the "DiffbotArticleClient" folder using any text editor
+- At the top of the code, in the "API constants" section, add the Diffbot API Token found in your email after signing up for the Diffbot 2-week Free trial or in your dashboard if you are already logged into the Diffbot website (https://www.diffbot.com). After adding the credentials, save the file and close it.
+- Return to the root folder and open "ArticleSummarizer.xcodeproj"
+- On the top bar, next to the play and stop button, select the target and set it to "Article Summarizer"
+- Next to that, set the platform to one of the latest simulators or your own device if you have your iphone plugged into the laptop via a USB cord.
+- Finally, hit the play button to run the app in a simulator or your own device
+
+**If Running App on your Own Device**
+After hitting the play button, xcode should download the app to your phone. If the app runs into a signing error while running/downloading, hit fix signing error. If after downloading the app, you still cannot open it, make sure that my developer account is trusted. To check, open the Settings App and click on the "General" tab. Scroll down to the "Device Management" tab and click on my account(sahajb97@gmail.com). You should see the "Article Summarizer" app listed. Hit "Trust" to enable your device to open my app.
+
+App Overview
+------------
+When first opening the app, you should see an empty table, labeled "Saved Articles". This screen will show any articles that you have previously summarized and want to see again. To actually **summarize** an article, open Safari and find any online article. When on the article page, tap the share button and in the bottom most row, scroll until you find an action extension labeled "Summarizer Extension." If the app extension cannot be seen, hit "More" and switch "Summarizer Extension" on. After tapping the "Summarizer Extension," you should see a page that says "Loading Summary." This page will load the summary, gather additional information regarding the article, and save the article for future viewing. It may take a long time to load the summary depending on the internet connection speed with the APIs. If it encounters any errors while loading the summary, the extension will be closed. Otherwise, just wait until the loading is complete. Once everything is loaded, a new page will appear with the article title, author, and publication information. If further author information is available, the author text will be colored blue and tapping on it will lead to another page which provides further information on the author. Underneath this information is the actual summary. Words important to the topic of the article are made into hyperlinks that provide further information on the specific key word. Tapping on the hyperlink will open another page as well with the additional information. Once you are done with the summary, tap "Done" and the app extension will close. Now, you can continue browsing more articles and create more summaries, or you can return to the main application. If you open the app once again, you should notice that the table is populated with all of the articles that you successfully summarized using the app extension. Tapping on any of the articles in the table will lead to a familiar page with the article title, author, publication, and summary. Once again, tapping any of the blue text will provide further information on the topics. All of these summaries are accessible offline as they are stored locally. However, the additional information regarding the author and key words is only accessible with internet access.
+**Unfortunately**, not all articles can be summarized by the AYLIEN API as discovered when going through multiple tests regarding the summarized data.
