@@ -97,6 +97,10 @@ class LoadingController: UIViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    //If no summary is actually generated, quit the extension
+                    if (self.summaryString == "") {
+                        self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+                    }
                     //Wait until both APIs are accessed before loading summary
                     if (apiFinished) {
                         self.performSegueWithIdentifier("showSummary", sender: nil)

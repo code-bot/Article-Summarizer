@@ -19,7 +19,6 @@ class StoredArticlesTableController: UITableViewController {
         
         //Get articles stored on the device and reload tableview
         let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
-        myDefaults?.setObject([NSDictionary](), forKey: "urls")
         storedInfo = myDefaults?.objectForKey("urls") as? [NSDictionary]
         tableView.reloadData()
     }
