@@ -2,6 +2,8 @@
 //  SummaryController.swift
 //  Article Summarizer
 //
+//  Shows summary and additional information of the article
+//
 //  Created by Sahaj Bhatt on 3/11/16.
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
@@ -28,8 +30,11 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set title, author, and publication labels' texts
         self.titleLabel.text = articleTitle
         self.authorButton.setTitle(articleAuthor, forState: UIControlState.Normal)
+        //Change text color and interaction status based on the existance of an author url
         if (authorUrl == "") {
             self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = false
@@ -39,6 +44,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
         }
         self.publicationLabel.text = articlePublication
         
+        //If articles doesn't already exist in storage
         if (!articleExists) {
             //Convert summary to HTML text and add hyperlinks around key words in text
             summaryHTML = "<p>" + summaryText + "</p>"
@@ -76,35 +82,34 @@ class SummaryController: UIViewController, UIWebViewDelegate {
             summaryHTML = summaryText
         }
         
+        //Set webview options and load html text
         webView.delegate = self
         webView.scrollView.bounces = false
         webView.loadHTMLString(summaryHTML, baseURL: nil)
     }
     
+    //Segues to AdditionalInfoController with author url once author button is tapped
     @IBAction func loadAuthorPage(sender: AnyObject) {
         performSegueWithIdentifier("showAdditionalInfo", sender: ["Author Info", authorUrl])
-        //UIApplication.sharedApplication().openURL(NSURL(string: authorURL)!)
     }
     
-    //Hyperlink tapped within webview
+    //Opens hyperlink within webview
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        //Open link via safari
+        //Open link via AdditionalInfoController
         if navigationType == UIWebViewNavigationType.LinkClicked {
             performSegueWithIdentifier("showAdditionalInfo", sender: ["Additional Info", request.URL!.absoluteString])
-            //UIApplication.sharedApplication().openURL(request.URL!)
             return false
         }
         return true
     }
     
+    //Close the extension when the done button is tapped
     @IBAction func done(sender: AnyObject) {
-        // Echo the passed in items
-        //print(self.extensionContext!)
-        //self.dismissViewControllerAnimated(false, completion: nil)
         self.originalExtensionContext!.completeRequestReturningItems(self.originalExtensionContext!.inputItems, completionHandler: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Transfer information to AdditionalInfoController
         if let vc = segue.destinationViewController as? AdditionalInfoController {
             if let params = sender as? [String] {
                 vc.infoType = params[0]

@@ -2,6 +2,8 @@
 //  LoadingController.swift
 //  Article Summarizer
 //
+//  Loads the summary and additional information of article using the AylienSummarizerClient and DiffbotArticleClient
+//
 //  Created by Sahaj Bhatt on 3/20/16.
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
@@ -20,24 +22,27 @@ class LoadingController: UIViewController {
     var authorUrl = ""
     var sourceUrl = ""
     var articleExists = false
+    @IBOutlet weak var loadingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadingLabel.text = "Loading Summary"
+        
         // Get the item[s] we're handling from the extension context.
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
         let itemProvider = extensionItem.attachments?.first as! NSItemProvider
         
-        
+        //Get the url of the article accessed on Safari
         let propertyList = String(kUTTypePropertyList)
         if itemProvider.hasItemConformingToTypeIdentifier(propertyList) {
             itemProvider.loadItemForTypeIdentifier(propertyList, options: nil, completionHandler: { (item, error) -> Void in
                 let dictionary = item as! NSDictionary
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
+                    //Get the source URL
                     self.sourceUrl = results["currentUrl"] as! String
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        print(self.sourceUrl)
+                        //Check whether the article exists in stored data already
                         let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
                         let storedInfo = myDefaults?.arrayForKey("urls")
                         var index = 0;
@@ -52,8 +57,10 @@ class LoadingController: UIViewController {
                         }
                         
                         if (!self.articleExists) {
+                            //If the article doesn't exist in local storage, load the summary with the APIs
                             self.loadSummary(self.sourceUrl)
                         } else {
+                            //If the article already exists in local storage, get the stored data
                             let article = storedInfo![index-1] as! NSDictionary
                             self.articleTitle = article["title"] as! String
                             self.articleAuthor = article["author"] as! String
@@ -68,6 +75,10 @@ class LoadingController: UIViewController {
             })
         } else {
             print("Error: Could not get url link of article from Safari source")
+            //If there is an error, close the extension
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+            }
         }
     }
     
@@ -80,10 +91,9 @@ class LoadingController: UIViewController {
             if (succeeded) {
                 print("Aylien api accessed: Summarizer")
                 
-                if let sentences = data!["sentences"] {
-                    for sentence in sentences as! [String] {
-                        self.summaryString += sentence + " "
-                    }
+                //Get the summary
+                if let text = data!["text"] {
+                    self.summaryString = text as! String
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
@@ -97,6 +107,11 @@ class LoadingController: UIViewController {
                 
             } else {
                 print("Aylien api failed to access: Summarizer")
+                //If there is an error, close the extension
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+                }
+                
             }
         }
         
@@ -105,6 +120,8 @@ class LoadingController: UIViewController {
         DiffbotArticleClient.analyze(sourceUrl, params: nil) { (succeeded, data) -> () in
             if (succeeded) {
                 print("Diffbot api accessed: Article Analyze")
+                
+                //Get additional information about the article
                 if let objects = data!["objects"] as! NSArray? {
                     let info = objects[0] as! NSDictionary
                     if let title = info["title"] {
@@ -135,12 +152,13 @@ class LoadingController: UIViewController {
                     var tagsFinished = 0
                     var relatedPhrasesDone = true
                     while (tagsFinished < self.articleTags.count) {
+                        //Call the GET request again once the original thread is finished
                         if (relatedPhrasesDone && tagsFinished < self.articleTags.count) {
                             let tag = self.articleTags[tagsFinished]
-                            //self.relatedPhrasesForTags.append(["label":tag["label"] as! String])
                             AylienSummarizerClient.relatedPhrases((tag["label"] as! String).stringByReplacingOccurrencesOfString(")", withString: "").stringByReplacingOccurrencesOfString("(", withString: "")) { (succeeded, data) -> () in
                                 if (succeeded) {
                                     print("Aylien api accessed: Related Phrases")
+                                    //Add all related phrases
                                     if let phrases = data {
                                         self.relatedPhrasesForTags.append(phrases)
                                     }
@@ -153,6 +171,7 @@ class LoadingController: UIViewController {
                             relatedPhrasesDone = false
                         }
                     }
+                    
                     //Wait until both APIs are accessed before loading summary
                     if (tagsFinished == self.articleTags.count && apiFinished) {
                         self.performSegueWithIdentifier("showSummary", sender: nil)
@@ -163,6 +182,10 @@ class LoadingController: UIViewController {
                 
             } else {
                 print("Diffbot api failed to access: Article Analyze")
+                //If there is an error, close the extension
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+                }
             }
         }
 
@@ -172,7 +195,6 @@ class LoadingController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Transfer data to SummaryController when the segue is performed
         if let vc = segue.destinationViewController as? SummaryController {
-            //Pass data to SummaryController
             vc.articleTitle = self.articleTitle
             vc.articleAuthor = self.articleAuthor
             vc.articlePublication = self.articlePublication

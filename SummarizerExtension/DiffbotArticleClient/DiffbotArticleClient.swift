@@ -2,25 +2,32 @@
 //  DiffbotArticleClient.swift
 //  Article Summarizer
 //
+//  Client that uses GET Requests to access the Diffbot API
+//
 //  Created by Sahaj Bhatt on 3/20/16.
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
 
 import UIKit
 
+//API constants
 let Diffbot_API_Token = "e9f92e911efc248037f969b3886f6169"
 let Diffbot_Base_URL = "http://api.diffbot.com/v3/article"
 
 public class DiffbotArticleClient {
-    //Summarizes the article on the provided url
-    //Additional parameters can be passed in to edit the number of sentences and the language
+    //Analyzes the article on the provided url
+    //Additional parameters can be passed in to specify details regarding the output
     public static func analyze(articleURL : String, params : NSDictionary?, withCallback : (succeeded: Bool, data : NSDictionary?) -> ()) {
+        //Converts parameters to url form
         let paramsString = convertParams(params)
-        let urlString = Diffbot_Base_URL + "?token=" + Diffbot_API_Token + "&url=" + articleURL.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())! + paramsString
+        //Converts url to a format that is allowed to be passed in as a parameter in the url
+        let customAllowedSet = NSCharacterSet(charactersInString: "&=\"#%/<>?@\\^`{|}").invertedSet
+        let urlString = Diffbot_Base_URL + "?token=" + Diffbot_API_Token + "&url=" + articleURL.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)! + paramsString
         let url = NSURL(string: urlString)
         
         let request = NSMutableURLRequest(URL: url!)
         
+        //Start a GET Request
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             if (error != nil) {
@@ -29,6 +36,7 @@ public class DiffbotArticleClient {
             } else {
                 var json : NSDictionary?
                 do {
+                    //Get data from the API in JSON format
                     json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as? NSDictionary
                     
                     if let parseJSON = json {
@@ -46,6 +54,7 @@ public class DiffbotArticleClient {
         task.resume()
     }
     
+    //Converts the given parameters into a form that can be passed into a url
     public static func convertParams(params: NSDictionary?) -> String {
         var paramString = ""
         if (params != nil) {

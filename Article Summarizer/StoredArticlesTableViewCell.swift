@@ -2,6 +2,8 @@
 //  StoredArticlesTableViewCell.swift
 //  Article Summarizer
 //
+//  Represents a cell in the table of articles
+//
 //  Created by Sahaj Bhatt on 3/21/16.
 //  Copyright © 2016 Sahaj Bhatt. All rights reserved.
 //
@@ -20,6 +22,7 @@ class StoredArticlesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        //Set cell information
         titleLabel.text = articleTitle
         authorLabel.text = articleAuthor
         dateLabel.text = articleDate
@@ -27,7 +30,6 @@ class StoredArticlesTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
