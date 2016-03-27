@@ -151,6 +151,11 @@ class LoadingController: UIViewController {
                     if let authURL = info["authorUrl"] {
                         self.authorUrl = authURL as! String
                     }
+                } else {
+                    //If there is an error, close the extension
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        self.extensionContext!.completeRequestReturningItems(self.extensionContext!.inputItems, completionHandler: nil)
+                    }
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in

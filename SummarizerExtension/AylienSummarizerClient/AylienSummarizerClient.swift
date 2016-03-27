@@ -11,8 +11,8 @@
 import UIKit
 
 //API constants
-let AYLIEN_TextAPI_App_Key = "9cec5357fbdf8eece817054e0d153141"
-let AYLIEN_TextAPI_App_ID = "ced832ab"
+let AYLIEN_TextAPI_App_Key = "<INSERT API KEY>"
+let AYLIEN_TextAPI_App_ID = "<INSERT APP ID>"
 let AYLIEN_Base_URL = "https://api.aylien.com/api/v1"
 
 public class AylienSummarizerClient {
