@@ -3,7 +3,7 @@
 - Download the zip file
 - Within the downloaded folder, open the "SummarizerExtension" folder
 - Open "AylienSummarizerClient.swift" located in the "AylienSummarizerClient" folder using any text editor
-- At the top of the code, in the "API constants" section, add the AYLIEN App Key and App ID found in your Dashboard after logging into the AYLIEN Text Analysis website (https://developer.aylien.com). After adding the credentials, save the file and close it.
+- At the top of the code, in the "API constants" section, add the AYLIEN App Key and App ID found in your Dashboard after logging into the AYLIEN Text Analysis website (https://developer.aylien.com). After adding the credentials, save the file and close it. **Make sure to remove "<>" angle brackets when adding the credentials**
 ```
 //
 //  AylienSummarizerClient.swift
@@ -23,7 +23,7 @@ let AYLIEN_TextAPI_App_ID = "<INSERT APP ID>"
 let AYLIEN_Base_URL = "https://api.aylien.com/api/v1"
 ```
 - Open "DiffbotArticleClient.swift" located in the "DiffbotArticleClient" folder using any text editor
-- At the top of the code, in the "API constants" section, add the Diffbot API Token found in your email after signing up for the Diffbot 2-week Free trial or in your dashboard if you are already logged into the Diffbot website (https://www.diffbot.com). After adding the credentials, save the file and close it.
+- At the top of the code, in the "API constants" section, add the Diffbot API Token found in your email after signing up for the Diffbot 2-week Free trial or in your dashboard if you are already logged into the Diffbot website (https://www.diffbot.com). After adding the credentials, save the file and close it. **Make sure to remove "<>" angle brackets when adding the credentials**
 ```
   //
   //  DiffbotArticleClient.swift
