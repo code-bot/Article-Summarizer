@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87262FBC1CA081C200D83A76 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */; };
-		87262FBD1CA081C700D83A76 /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */; };
 		87262FC21CA083A700D83A76 /* DiffbotArticleClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FBF1CA083A700D83A76 /* DiffbotArticleClient.swift */; };
 		87262FC31CA083A700D83A76 /* AylienSummarizerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87262FC11CA083A700D83A76 /* AylienSummarizerClient.swift */; };
 		87262FC61CA083BE00D83A76 /* MainExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87262FC41CA083BE00D83A76 /* MainExtension.storyboard */; };
@@ -72,7 +70,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AylienSummarizerClient.swift; sourceTree = "<group>"; };
 		87262FBF1CA083A700D83A76 /* DiffbotArticleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffbotArticleClient.swift; sourceTree = "<group>"; };
 		87262FC11CA083A700D83A76 /* AylienSummarizerClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AylienSummarizerClient.swift; sourceTree = "<group>"; };
 		87262FC51CA083BE00D83A76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainExtension.storyboard; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 		87A4AE381C9354CB000D5E4A /* Article_SummarizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article_SummarizerTests.swift; sourceTree = "<group>"; };
 		87A4AE3A1C9354CB000D5E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87AC02841C93577000B26AAE /* Article Summarizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Article Summarizer-Bridging-Header.h"; sourceTree = "<group>"; };
-		87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffbotArticleClient.swift; sourceTree = "<group>"; };
 		87B8405E1C9F6A400070E6EC /* SummarizerExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SummarizerExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		87D26D231C9F40D9000DE9E9 /* Article Summarizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Article Summarizer.entitlements"; sourceTree = "<group>"; };
 		87D26D281C9F431A000DE9E9 /* SummarizerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SummarizerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,14 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8703C3F11C9CC4F100740257 /* AylienSummarizerClient */ = {
-			isa = PBXGroup;
-			children = (
-				8703C3F21C9CC4F100740257 /* AylienSummarizerClient.swift */,
-			);
-			path = AylienSummarizerClient;
-			sourceTree = "<group>";
-		};
 		87262FBE1CA083A700D83A76 /* DiffbotArticleClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +167,6 @@
 		87A4AE221C9354CB000D5E4A /* Article Summarizer */ = {
 			isa = PBXGroup;
 			children = (
-				8703C3F11C9CC4F100740257 /* AylienSummarizerClient */,
-				87B8402C1C9F61F70070E6EC /* DiffbotArticleClient */,
 				87D26D231C9F40D9000DE9E9 /* Article Summarizer.entitlements */,
 				87A4AE231C9354CB000D5E4A /* AppDelegate.swift */,
 				87A4AE251C9354CB000D5E4A /* SummaryController.swift */,
@@ -203,14 +189,6 @@
 				87A4AE3A1C9354CB000D5E4A /* Info.plist */,
 			);
 			path = "Article SummarizerTests";
-			sourceTree = "<group>";
-		};
-		87B8402C1C9F61F70070E6EC /* DiffbotArticleClient */ = {
-			isa = PBXGroup;
-			children = (
-				87B8402D1C9F62150070E6EC /* DiffbotArticleClient.swift */,
-			);
-			path = DiffbotArticleClient;
 			sourceTree = "<group>";
 		};
 		87D26D291C9F431A000DE9E9 /* SummarizerExtension */ = {
@@ -442,8 +420,6 @@
 				87262FE21CA0A8E800D83A76 /* StoredArticlesTableControllerTableViewController.swift in Sources */,
 				87A4AE241C9354CB000D5E4A /* AppDelegate.swift in Sources */,
 				87262FE41CA0A9D300D83A76 /* StoredArticlesTableViewCell.swift in Sources */,
-				87262FBD1CA081C700D83A76 /* DiffbotArticleClient.swift in Sources */,
-				87262FBC1CA081C200D83A76 /* AylienSummarizerClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -92,8 +92,10 @@ class LoadingController: UIViewController {
                 print("Aylien api accessed: Summarizer")
                 
                 //Get the summary
-                if let text = data!["text"] {
-                    self.summaryString = text as! String
+                if let sentences = data!["sentences"] {
+                    for sentence in sentences as! [String] {
+                        self.summaryString += sentence + " "
+                    }
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
