@@ -49,7 +49,7 @@ let AYLIEN_Base_URL = "https://api.aylien.com/api/v1"
 - Finally, hit the play button to run the app in a simulator or your own device
 
 **If Running App on your Own Device**  
-After hitting the play button, xcode should download the app to your phone. If the app runs into a signing error while running/downloading, hit fix signing error. If after downloading the app, you still cannot open it, make sure that my developer account is trusted. To check, open the Settings App and click on the "General" tab. Scroll down to the "Device Management" tab and click on my account(sahajb97@gmail.com). You should see the "Article Summarizer" app listed. Hit "Trust" to enable your device to open my app.
+After hitting the play button, xcode should download the app to your phone. If the app runs into a signing error while running/downloading, hit fix signing error. If after downloading the app, you still cannot open it due to a security error, make sure that my developer account is trusted. To check, open the Settings App and click on the "General" tab. Scroll down to the "Device Management" tab and click on my account(sahajb97@gmail.com). You should see the "Article Summarizer" app listed. Make sure you are connected to the internet and hit "Trust" to enable your device to open my app and automatically verify the app. Now you can return to the home and tap on the app to open it.
 
 ## App Overview
 When first opening the app, you should see an empty table, labeled "Saved Articles". This screen will show any articles that you have previously summarized and want to see again.  
