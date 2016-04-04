@@ -41,7 +41,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
             self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = false
         } else {
-            self.authorButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+            self.authorButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = true
         }
         self.publicationLabel.text = articlePublication

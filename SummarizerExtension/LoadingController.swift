@@ -22,6 +22,7 @@ class LoadingController: UIViewController {
     var authorUrl = ""
     var sourceUrl = ""
     var articleExists = false
+    var imageUrl = ""
     @IBOutlet weak var loadingLabel: UILabel!
     
     override func viewDidLoad() {
@@ -151,6 +152,9 @@ class LoadingController: UIViewController {
                     if let authURL = info["authorUrl"] {
                         self.authorUrl = authURL as! String
                     }
+                    if let images = info["images"] {
+                        self.imageUrl = (images[0] as! NSDictionary)["url"] as! String
+                    }
                 } else {
                     //If there is an error, close the extension
                     dispatch_async(dispatch_get_main_queue()) { () -> Void in
@@ -199,7 +203,7 @@ class LoadingController: UIViewController {
                 }
             }
         }
-
+        
     }
     
     
@@ -216,6 +220,7 @@ class LoadingController: UIViewController {
             vc.originalExtensionContext = self.extensionContext
             vc.relatedPhrasesForTags = self.relatedPhrasesForTags
             vc.articleExists = self.articleExists
+            vc.imageUrl = self.imageUrl
         }
     }
     
@@ -223,5 +228,5 @@ class LoadingController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

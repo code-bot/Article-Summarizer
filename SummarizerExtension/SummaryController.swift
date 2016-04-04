@@ -11,7 +11,7 @@
 import UIKit
 
 class SummaryController: UIViewController, UIWebViewDelegate {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var publicationLabel: UILabel!
@@ -25,6 +25,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
     var relatedPhrasesForTags = [[NSDictionary]]()
     var authorUrl = ""
     var sourceUrl = ""
+    var imageUrl = ""
     var originalExtensionContext: NSExtensionContext?
     var articleExists = false
     
@@ -39,7 +40,7 @@ class SummaryController: UIViewController, UIWebViewDelegate {
             self.authorButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = false
         } else {
-            self.authorButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+            self.authorButton.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Normal)
             self.authorButton.userInteractionEnabled = true
         }
         self.publicationLabel.text = articlePublication
@@ -53,13 +54,13 @@ class SummaryController: UIViewController, UIWebViewDelegate {
                 let tagLabel = (tag["label"] as! String).stringByReplacingOccurrencesOfString(")", withString: "").stringByReplacingOccurrencesOfString("(", withString: "")
                 let range = summaryHTML.rangeOfString(tagLabel, options: NSStringCompareOptions.CaseInsensitiveSearch)
                 if (range != nil) {
-                    summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tagLabel, withString: "<a href=https://en.wikipedia.org/wiki/" + (tagLabel).stringByReplacingOccurrencesOfString(" ", withString: "_") + ">" + summaryHTML.substringWithRange(range!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range!)
+                    summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(tagLabel, withString: "<a style=\"color:orange\" href=\"https://en.wikipedia.org/wiki/" + (tagLabel).stringByReplacingOccurrencesOfString(" ", withString: "_") + "\">" + summaryHTML.substringWithRange(range!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: range!)
                 } else {
                     var phraseIndex = 0
                     while (phraseIndex < relatedPhrasesForTags[index].count) {
                         let rangeOfRelatedPhrase = summaryHTML.rangeOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, options: NSStringCompareOptions.CaseInsensitiveSearch)
                         if (rangeOfRelatedPhrase != nil) {
-                            summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, withString: "<a href=https://en.wikipedia.org/wiki/" + (tag["label"] as! String).stringByReplacingOccurrencesOfString(" ", withString: "_") + ">" + summaryHTML.substringWithRange(rangeOfRelatedPhrase!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: rangeOfRelatedPhrase!)
+                            summaryHTML = summaryHTML.stringByReplacingOccurrencesOfString(relatedPhrasesForTags[index][phraseIndex]["phrase"] as! String, withString: "<a style=\"color:orange\" href=\"https://en.wikipedia.org/wiki/" + (tag["label"] as! String).stringByReplacingOccurrencesOfString(" ", withString: "_") + "\">" + summaryHTML.substringWithRange(rangeOfRelatedPhrase!) + "</a>", options: NSStringCompareOptions.CaseInsensitiveSearch, range: rangeOfRelatedPhrase!)
                             phraseIndex = relatedPhrasesForTags[index].count
                         } else {
                             phraseIndex++
@@ -73,9 +74,9 @@ class SummaryController: UIViewController, UIWebViewDelegate {
             let myDefaults = NSUserDefaults(suiteName: "group.com.sahajbhatt.Article-Summarizer")
             var storedInfo = myDefaults?.arrayForKey("urls")
             if (storedInfo == nil) {
-                myDefaults?.setObject([["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML]], forKey: "urls")
+                myDefaults?.setObject([["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML,"imageUrl":self.imageUrl]], forKey: "urls")
             } else {
-                storedInfo!.insert(["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML], atIndex: 0)
+                storedInfo!.insert(["url":self.sourceUrl,"title":self.articleTitle,"author":self.articleAuthor,"authorUrl":self.authorUrl,"publication":self.articlePublication,"summary":self.summaryHTML,"imageUrl":self.imageUrl], atIndex: 0)
                 myDefaults?.setObject(storedInfo!, forKey: "urls")
             }
         } else {
@@ -117,12 +118,12 @@ class SummaryController: UIViewController, UIWebViewDelegate {
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
 }
 

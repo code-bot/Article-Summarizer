@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Reload table when app becomes active again
         let navController = self.window?.rootViewController as! UINavigationController
         if let tableController = navController.visibleViewController as? StoredArticlesTableController {
-            tableController.viewDidAppear(false)
+            tableController.viewDidLoad()
         }
     }
 
