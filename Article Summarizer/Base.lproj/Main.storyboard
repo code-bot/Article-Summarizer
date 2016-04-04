@@ -25,7 +25,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aMk-zo-XyC">
                                             <rect key="frame" x="8" y="18" width="584" height="254"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CZ2-OL-1KS">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CZ2-OL-1KS">
                                                     <rect key="frame" x="0.0" y="0.0" width="584" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="mOl-To-zQB"/>
@@ -66,26 +66,15 @@
                                                     </variation>
                                                 </stackView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="duV-WZ-ded" firstAttribute="top" secondItem="CZ2-OL-1KS" secondAttribute="bottom" id="qLz-ok-lrD"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="aMk-zo-XyC" secondAttribute="bottom" constant="10" id="4TJ-Mq-OAc"/>
-                                        <constraint firstItem="aMk-zo-XyC" firstAttribute="top" secondItem="Qou-ri-aOw" secondAttribute="topMargin" constant="-8" id="TUy-2y-Vbg"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aMk-zo-XyC" secondAttribute="bottom" constant="-8.5" id="afo-aa-xu7"/>
                                         <constraint firstItem="aMk-zo-XyC" firstAttribute="top" secondItem="Qou-ri-aOw" secondAttribute="topMargin" constant="10" id="dJm-VL-Hkt"/>
                                         <constraint firstItem="aMk-zo-XyC" firstAttribute="trailing" secondItem="Qou-ri-aOw" secondAttribute="trailingMargin" id="hX6-WD-wCT"/>
                                         <constraint firstItem="aMk-zo-XyC" firstAttribute="leading" secondItem="Qou-ri-aOw" secondAttribute="leadingMargin" id="o0J-BY-PhB"/>
                                         <constraint firstItem="aMk-zo-XyC" firstAttribute="centerX" secondItem="Qou-ri-aOw" secondAttribute="centerX" id="qe1-OF-unB"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="TUy-2y-Vbg"/>
-                                            <exclude reference="afo-aa-xu7"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="articleImageView" destination="CZ2-OL-1KS" id="DUK-Fr-xLu"/>

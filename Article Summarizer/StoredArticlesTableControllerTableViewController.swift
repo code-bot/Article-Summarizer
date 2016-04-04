@@ -48,10 +48,12 @@ class StoredArticlesTableController: UITableViewController {
         //Set cell information
         let article = storedInfo![indexPath.row]
         //Check if image exists
-        if let imageUrl = NSURL(string: article["imageUrl"] as! String) {
-            let imageData = NSData(contentsOfURL: imageUrl)
-            if let image = imageData {
-                cell.articleImageView.image = UIImage(data: image)
+        if let imageUrlStr = article["imageUrl"] as? String {
+            if let imageUrl = NSURL(string: imageUrlStr) {
+                let imageData = NSData(contentsOfURL: imageUrl)
+                if let image = imageData {
+                    cell.articleImageView.image = UIImage(data: image)
+                }
             }
         }
         cell.titleLabel.text = (article["title"] as! String)
@@ -68,8 +70,10 @@ class StoredArticlesTableController: UITableViewController {
         let article = storedInfo![indexPath.row]
         var imageHeight = CGFloat(0)
         //Check if the image can be accessed before incrementing height of table
-        if let _ = NSURL(string: article["imageUrl"] as! String) {
-            imageHeight = CGFloat(250)
+        if let imageUrl = article["imageUrl"] as? String {
+            if let _ = NSURL(string: imageUrl) {
+                imageHeight = CGFloat(230)
+            }
         }
         let articleTitle = article["title"] as! String
         let attributedText = NSAttributedString(string: articleTitle, attributes: [NSFontAttributeName:UIFont.systemFontOfSize(24)])
